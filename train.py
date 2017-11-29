@@ -70,12 +70,13 @@ def get_data(data_dir, hdf5):
     return X, Y, X_test, Y_test
 
 
-def main(data_dir, hdf5):
+def main(data_dir, hdf5, name):
     """This is the main function of the file.
 
     Args:
         data_dir: The root directory of the images.
-        hdf5: Boolean if a hdf5 database should be created to load in the images."""
+        hdf5: Boolean if a hdf5 database should be created to load in the images.
+        name: Name of the current training run."""
 
     # Set some variables for training.
     batch_size = 256
@@ -97,7 +98,9 @@ def main(data_dir, hdf5):
     network = create_network(img_prep, img_aug)
 
     # Training.
-    model = tflearn.DNN(network, tensorboard_verbose=0, tensorboard_dir='tensorboard', best_checkpoint_path='output/')
+    checkpoint_path = 'output/'+name+'/'
+    tensorboard_path = 'tensorboard/'+name+'/'
+    model = tflearn.DNN(network, tensorboard_verbose=0, tensorboard_dir=tensorboard_path, best_checkpoint_path=checkpoint_path)
     model.fit(X, Y, n_epoch=num_epochs, shuffle=True, validation_set=(X_test, Y_test),
     show_metric=True, batch_size=batch_size, run_id='tiny-imagenet_baseline')
 
@@ -110,9 +113,12 @@ if __name__ == '__main__':
     parser.add_argument('--hdf5',
                         help='Set if hdf5 database should be created.',
                         action='store_true')
+    parser.add_argument('--name', type=str,
+                        default='default',
+                        help='Name of this training run. Will store results in output/[name]')
     args, unparsed = parser.parse_known_args()
     if not os.path.exists('tensorboard'):
         os.makedirs('tensorboard')
     if not os.path.exists('output'):
         os.makedirs('output')
-    main(args.data_dir, args.hdf5)
+    main(args.data_dir, args.hdf5, args.name)
