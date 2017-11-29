@@ -7,7 +7,7 @@ from tflearn.layers.conv import conv_2d, max_pool_2d
 from tflearn.layers.estimator import regression
 from tflearn.layers.normalization import batch_normalization
 
-def create_network(img_prep, img_aug):
+def create_network(img_prep, img_aug, learning_rate):
     """This function defines the network structure.
 
     Args:
@@ -42,5 +42,5 @@ def create_network(img_prep, img_aug):
     # Loss function. Softmax cross entropy. Adam optimization.
     network = regression(network, optimizer='adam',
                          loss='categorical_crossentropy',
-                         learning_rate=0.001)
+                         learning_rate=learning_rate)
     return network

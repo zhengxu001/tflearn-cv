@@ -81,6 +81,7 @@ def main(data_dir, hdf5, name):
     # Set some variables for training.
     batch_size = 256
     num_epochs = 10
+    learning_rate = 0.001
 
     # Load in data.
     X, Y, X_test, Y_test = get_data(data_dir, hdf5)
@@ -95,7 +96,7 @@ def main(data_dir, hdf5, name):
     img_aug.add_random_flip_leftright()
 
     # Get the network definition.
-    network = create_network(img_prep, img_aug)
+    network = create_network(img_prep, img_aug, learning_rate)
 
     # Training.
     checkpoint_path = 'output/'+name+'/'
