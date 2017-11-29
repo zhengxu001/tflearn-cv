@@ -98,12 +98,11 @@ def main(data_dir, hdf5, name):
     # Get the network definition.
     network = create_network(img_prep, img_aug, learning_rate)
 
-    # Training.
+    # Training. It will always save the best performing model on the validation data, even if it overfits.
     checkpoint_path = 'output/'+name+'/'
-    tensorboard_path = 'tensorboard/'+name+'/'
-    model = tflearn.DNN(network, tensorboard_verbose=0, tensorboard_dir=tensorboard_path, best_checkpoint_path=checkpoint_path)
+    model = tflearn.DNN(network, tensorboard_verbose=0, tensorboard_dir='tensorboard', best_checkpoint_path=checkpoint_path)
     model.fit(X, Y, n_epoch=num_epochs, shuffle=True, validation_set=(X_test, Y_test),
-    show_metric=True, batch_size=batch_size, run_id='tiny-imagenet_baseline')
+    show_metric=True, batch_size=batch_size, run_id=name)
 
 if __name__ == '__main__':
     # Parse arguments and create output directories.
