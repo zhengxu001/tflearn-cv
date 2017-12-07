@@ -57,6 +57,6 @@ By default you can access it now in your browser at `http://127.0.0.1:6006/`
 
 ## Creating a new model
 Just copy the *models/baseline_model.py* file and rename it. You can now add or remove layers, change hyperparameters, etc.  
-Take a look at the examples and available layers at [here](http://tflearn.org/).  
+Take a look at the examples and available layers [here](http://tflearn.org/). You can also change some training options in *train.py*, for example add more data augmentation options. 
 Also, make sure to import the new model in the *train.py* file.
 
