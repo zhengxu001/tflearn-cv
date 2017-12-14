@@ -40,12 +40,12 @@ def get_data(data_dir, hdf5):
         # Check if hdf5 databases already exist and create them if not.
         if not os.path.exists('hdf5/tiny-imagenet_train.h5'):
             from tflearn.data_utils import build_hdf5_image_dataset
-            print ' Creating hdf5 train dataset.'
+            print('Creating hdf5 train dataset.')
             build_hdf5_image_dataset(train_file, image_shape=(64, 64), mode='file', output_path='hdf5/tiny-imagenet_train.h5', categorical_labels=True, normalize=True)
 
         if not os.path.exists('hdf5/tiny-imagenet_val.h5'):
             from tflearn.data_utils import build_hdf5_image_dataset
-            print ' Creating hdf5 val dataset.'
+            print(' Creating hdf5 val dataset.')
             build_hdf5_image_dataset(val_file, image_shape=(64, 64), mode='file', output_path='hdf5/tiny-imagenet_val.h5', categorical_labels=True, normalize=True)
 
         # Load training data from hdf5 dataset.
