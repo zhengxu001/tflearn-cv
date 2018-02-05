@@ -22,8 +22,8 @@ def create_network(img_prep, img_aug, learning_rate):
                          data_preprocessing=img_prep,
                          data_augmentation=img_aug)
     # First convolution layer. 32 filters of size 5. Activation function ReLU. 64x64x3 -> 64x64x32
-    network = conv_2d(network, 32, 3, activation='relu')
-    network = conv_2d(network, 32, 3, activation='relu')
+    network = conv_2d(network, 32, 5, activation='relu')
+    network = conv_2d(network, 32, 5, activation='relu')
     # First batch normalization layer
     network = batch_normalization(network, stddev=0.002, trainable=True, restore=True, reuse=False)
     # Pooling layer. 64x64x32 -> 32x32x32
@@ -33,10 +33,12 @@ def create_network(img_prep, img_aug, learning_rate):
     network = conv_2d(network, 64, 5, activation='relu')
     # Second batch normalization layer
     network = batch_normalization(network, stddev=0.002, trainable=True, restore=True, reuse=False)
-
+    
+    network = max_pool_2d(network, 2)
+    network = conv_2d(network, 128, 5, activation='relu')
 
     # First fully connected layer. 32x32x32 -> 1x32768 -> 1x1024. ReLU activation.
-    network = fully_connected(network, 4096, activation='relu')
+    network = fully_connected(network, 2048, activation='relu')
     # Third batch normalization layer
     network = batch_normalization(network, stddev=0.002, trainable=True, restore=True, reuse=False)
     # Dropout layer for the first fully connected layer.
