@@ -3,12 +3,14 @@ from tflearn.layers.conv import conv_2d, max_pool_2d, avg_pool_2d
 from tflearn.layers.estimator import regression
 from tflearn.layers.normalization import batch_normalization
 
-def resLayer(x, filters):
+def resLayer(x, filters, m=False):
     network = conv_2d(x, filters, 3, activation='relu')
     network = batch_normalization(network)
     network = conv_2d(network, filters, 3, activation='relu')
     network = batch_normalization(network)
     network = x + network
+    if m == True:
+        network = max_pool_2d(network, 2)
     return network
 
 def create_network(img_prep, img_aug, learning_rate):
@@ -17,23 +19,19 @@ def create_network(img_prep, img_aug, learning_rate):
                          data_augmentation=img_aug)
 
     network = conv_2d(network, 64, 3, activation='relu')
-    network = batch_normalization(network, stddev=0.002, trainable=True, restore=True, reuse=False)
+    network = batch_normalization(network)
 
     network = resLayer(network, 64)
-    network = resLayer(network, 64)
-    network = max_pool_2d(network, 2)
+    network = resLayer(network, 64, m=True)
 
     network = resLayer(network, 128)
-    network = resLayer(network, 128)
-    network = max_pool_2d(network, 2)
+    network = resLayer(network, 128, m=True)
 
     network = resLayer(network, 256)
-    network = resLayer(network, 256)
-    network = max_pool_2d(network, 2)
+    network = resLayer(network, 256, m=True)
 
     network = resLayer(network, 512)
-    network = resLayer(network, 512)
-    network = max_pool_2d(network, 2)
+    network = resLayer(network, 512, m=True)
 
     network = fully_connected(network, 1024, activation='relu')
     network = batch_normalization(network, stddev=0.002, trainable=True, restore=True, reuse=False)
