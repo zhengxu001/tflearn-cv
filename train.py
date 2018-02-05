@@ -94,7 +94,7 @@ def main(data_dir, hdf5, name):
     # Define some data augmentation options. These will only be done for training.
     img_aug = tflearn.data_augmentation.ImageAugmentation()
     img_aug.add_random_flip_leftright()
-    ima_aug.add_random_90degrees_rotation(rotations=[0, 1, 2, 3])
+    img_aug.add_random_90degrees_rotation(rotations=[0, 1, 2, 3])
     img_aug.add_random_crop((56, 56))
 
     # Get the network definition.
