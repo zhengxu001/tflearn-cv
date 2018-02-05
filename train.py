@@ -80,7 +80,7 @@ def main(data_dir, hdf5, name):
 
     # Set some variables for training.
     batch_size = 256
-    num_epochs = 20
+    num_epochs = 10
     learning_rate = 0.001
 
     # Load in data.
