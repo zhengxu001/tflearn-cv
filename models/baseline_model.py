@@ -33,13 +33,12 @@ def create_network(img_prep, img_aug, learning_rate):
     network = conv_2d(network, 64, 5, activation='relu')
     # Second batch normalization layer
     network = batch_normalization(network, stddev=0.002, trainable=True, restore=True, reuse=False)
-    # First fully connected layer. 32x32x32 -> 1x32768 -> 1x1024. ReLU activation.
+    # First fully connected layer. 32x32x64 -> 1x32768 -> 1x1024. ReLU activation.
     network = fully_connected(network, 2048, activation='relu')
     # Third batch normalization layer
     network = batch_normalization(network, stddev=0.002, trainable=True, restore=True, reuse=False)
     # Dropout layer for the first fully connected layer.
     network = dropout(network, 0.5)
-    network = fully_connected(network, 800, activation='relu')
     # Second fully connected layer. 1x1024 -> 1x200. Maps to class labels. Softmax activation to get probabilities.
     network = fully_connected(network, 200, activation='softmax')
     # Loss function. Softmax cross entropy. Adam optimization.
