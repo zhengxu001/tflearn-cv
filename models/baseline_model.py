@@ -36,7 +36,7 @@ def create_network(img_prep, img_aug, learning_rate):
     network = batch_normalization(network, stddev=0.001, trainable=True, restore=True, reuse=False)    
     network = max_pool_2d(network, 2)
 
-    network = fully_connected(network, 2048, activation='relu')
+    network = fully_connected(network, 4096, activation='relu')
     network = batch_normalization(network, stddev=0.002, trainable=True, restore=True, reuse=False)
     network = dropout(network, 0.5)
 
