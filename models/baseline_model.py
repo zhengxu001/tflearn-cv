@@ -14,7 +14,7 @@ def resLayer(x, filters, m=False):
     return (x + network)
 
 def create_network(img_prep, img_aug, learning_rate):
-    network = input_data(shape=[None, 56, 56, 3],
+    network = input_data(shape=[None, 64, 64, 3],
                          data_preprocessing=img_prep,
                          data_augmentation=img_aug)
     network = resLayer(network, 64, m=True)
