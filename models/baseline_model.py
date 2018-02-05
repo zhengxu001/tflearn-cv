@@ -22,36 +22,27 @@ def create_network(img_prep, img_aug, learning_rate):
                          data_preprocessing=img_prep,
                          data_augmentation=img_aug)
 
-    # First convolution layer. 32 filters of size 5. Activation function ReLU. 64x64x3 -> 64x64x64
     network = conv_2d(network, 64, 3, activation='relu')
     network = conv_2d(network, 64, 3, activation='relu')
-    # First batch normalization layer
     network = batch_normalization(network, stddev=0.002, trainable=True, restore=True, reuse=False)
-    # Pooling layer. 64x64x64 -> 32x32x64
     network = max_pool_2d(network, 2)
-    # Second convolution layer. 128 filters of size 3. Activation function ReLU. 32x32x32 -> 32x32x128
+
     network = conv_2d(network, 128, 3, activation='relu')
     network = conv_2d(network, 128, 3, activation='relu')
-    # Second batch normalization layer
     network = batch_normalization(network, stddev=0.002, trainable=True, restore=True, reuse=False)
-    # 32x32x128 -> 16x16x128
     network = max_pool_2d(network, 2)
 
     # 16*16*256
     network = conv_2d(network, 256, 3, activation='relu')
     network = conv_2d(network, 256, 3, activation='relu')
-    # 8*8*256
-    network = max_pool_2d(network, 2)
-
-    # First fully connected layer. 8x8x256 -> 1x16348 -> 1x1024. ReLU activation.
-    network = fully_connected(network, 1024, activation='relu')
-    # Third batch normalization layer
+    network = conv_2d(network, 256, 3, activation='relu')
     network = batch_normalization(network, stddev=0.002, trainable=True, restore=True, reuse=False)
-    # Dropout layer for the first fully connected layer.
+
+    network = fully_connected(network, 4096, activation='relu')
+    network = batch_normalization(network, stddev=0.002, trainable=True, restore=True, reuse=False)
     network = dropout(network, 0.5)
-    # Second fully connected layer. 1x1024 -> 1x200. Maps to class labels. Softmax activation to get probabilities.
+
     network = fully_connected(network, 200, activation='softmax')
-    # Loss function. Softmax cross entropy. Adam optimization.
     network = regression(network, optimizer='adam',
                          loss='categorical_crossentropy',
                          learning_rate=learning_rate)
