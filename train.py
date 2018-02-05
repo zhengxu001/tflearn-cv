@@ -16,23 +16,7 @@ from models.baseline_model import *
 from tflearn.data_utils import shuffle
 
 def get_data(data_dir, hdf5):
-    """This function loads in the data, either by loading images on the fly or by creating and
-    loading from a hdf5 database.
-
-    Args:
-        data_dir: Root directory of the dataset.
-        hdf5: Boolean. If true, (create and) load data from a hdf5 database.
-
-    Returns:
-        X: training images.
-        Y: training labels.
-        X_test: validation images.
-        Y_test: validation labels."""
-
-    # Get the filenames of the lists containing image paths and labels.
     train_file, val_file = build_dataset_index(data_dir)
-
-    # Check if (creating and) loading from hdf5 database is desired.
     if hdf5:
         # Create folder to store dataset.
         if not os.path.exists('hdf5'):
@@ -81,7 +65,7 @@ def main(data_dir, hdf5, name):
     # Set some variables for training.
     batch_size = 256
     num_epochs = 10
-    learning_rate = 0.001
+    learning_rate = 0.0005
 
     # Load in data.
     X, Y, X_test, Y_test = get_data(data_dir, hdf5)
@@ -94,8 +78,10 @@ def main(data_dir, hdf5, name):
     # Define some data augmentation options. These will only be done for training.
     img_aug = tflearn.data_augmentation.ImageAugmentation()
     img_aug.add_random_flip_leftright()
+    img_aug.add_random_flip_updown()
     img_aug.add_random_90degrees_rotation(rotations=[0, 1, 2, 3])
-    img_aug.add_random_crop((64, 64), 8)
+    img_aug.add_random_rotation (max_angle=20.0)
+    img_aug.add_random_crop((56, 56))
 
     # Get the network definition.
     network = create_network(img_prep, img_aug, learning_rate)
