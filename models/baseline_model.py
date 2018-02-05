@@ -3,7 +3,7 @@ from tflearn.layers.conv import conv_2d, max_pool_2d, avg_pool_2d
 from tflearn.layers.estimator import regression
 from tflearn.layers.normalization import batch_normalization
 
-def resLayer(self, x, filters):
+def resLayer(x, filters):
     network = conv_2d(x, filters, 3, activation='relu')
     network = batch_normalization(network)
     network = conv_2d(network, filters, 3, activation='relu')
