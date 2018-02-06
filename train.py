@@ -64,8 +64,8 @@ def main(data_dir, hdf5, name):
 
     # Set some variables for training.
     batch_size = 256
-    num_epochs = 20
-    learning_rate = 0.001
+    num_epochs = 30
+    learning_rate = 0.0001
 
     # Load in data.
     X, Y, X_test, Y_test = get_data(data_dir, hdf5)
@@ -81,7 +81,7 @@ def main(data_dir, hdf5, name):
     img_aug.add_random_flip_updown()
     img_aug.add_random_90degrees_rotation(rotations=[0, 1, 2, 3])
     img_aug.add_random_rotation (max_angle=20.0)
-    img_aug.add_random_crop((64, 64), 4)
+    # img_aug.add_random_crop((64, 64), 4)
 
     # Get the network definition.
     network = create_network(img_prep, img_aug, learning_rate)

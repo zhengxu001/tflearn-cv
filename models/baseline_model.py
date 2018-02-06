@@ -3,30 +3,38 @@ from tflearn.layers.conv import conv_2d, max_pool_2d, avg_pool_2d
 from tflearn.layers.estimator import regression
 from tflearn.layers.normalization import batch_normalization
 
-def resLayer(x, filters, m=False):
-    network = conv_2d(x, filters, 3, activation='relu')
+def resLayer(x, filters, stride=1):
+    network = conv_2d(x, filters, 3, activation=None, stride=stride)
     network = batch_normalization(network)
-    network = conv_2d(network, filters, 3, activation='relu')
+    network = relu(network)
+    network = conv_2d(network, filters, 3, activation=None)
     network = batch_normalization(network)
-    if m == True:
-        network = max_pool_2d(network, 2)
-        return network
-    return (x + network)
+    if stride != 1:
+      print("Projecting identity mapping to correct size")
+      x = max_pool_2d(x, 2)
+      x = conv_2d(x, filters, 1)
+
+    network = x + network
+    network = relu(network)
+
+    return network
 
 def create_network(img_prep, img_aug, learning_rate):
     network = input_data(shape=[None, 64, 64, 3],
                          data_preprocessing=img_prep,
                          data_augmentation=img_aug)
-    network = resLayer(network, 64, m=True)
+
+    network = conv_2d(network, 64, 3, activation=None)
+    network = batch_normalization(network)
+    network = relu(network)
+
     network = resLayer(network, 64)
-
-    network = resLayer(network, 128, m=True)
+    network = resLayer(network, 64)
+    network = resLayer(network, 128, stride = 2)
     network = resLayer(network, 128)
-
-    network = resLayer(network, 256, m=True)
+    network = resLayer(network, 256, stride = 2)
     network = resLayer(network, 256)
-
-    network = resLayer(network, 512, m=True)
+    network = resLayer(network, 512, stride = 2)
     network = resLayer(network, 512)
 
     network = fully_connected(network, 1024, activation='relu')
