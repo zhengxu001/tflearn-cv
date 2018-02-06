@@ -81,7 +81,7 @@ def main(data_dir, hdf5, name):
     img_aug.add_random_flip_updown()
     img_aug.add_random_90degrees_rotation(rotations=[0, 1, 2, 3])
     img_aug.add_random_rotation (max_angle=20.0)
-    # img_aug.add_random_crop((56, 56))
+    img_aug.add_random_crop((64, 64), 4)
 
     # Get the network definition.
     network = create_network(img_prep, img_aug, learning_rate)
