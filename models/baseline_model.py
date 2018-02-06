@@ -11,7 +11,6 @@ def resLayer(x, filters, stride=1):
     network = conv_2d(network, filters, 3, activation=None)
     network = batch_normalization(network)
     if stride != 1:
-      print("Projecting identity mapping to correct size")
       x = max_pool_2d(x, 2)
       x = conv_2d(x, filters, 1)
 
