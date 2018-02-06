@@ -35,7 +35,6 @@ def create_network(img_prep, img_aug, learning_rate):
     network = resLayer(network, 256, stride = 2)
     network = resLayer(network, 256)
     network = resLayer(network, 512, stride = 2)
-    network = resLayer(network, 512)
 
     network = fully_connected(network, 1024, activation='relu')
     network = batch_normalization(network)
