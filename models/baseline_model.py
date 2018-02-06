@@ -29,7 +29,6 @@ def create_network(img_prep, img_aug, learning_rate):
     network = relu(network)
 
     network = resLayer(network, 64)
-    network = resLayer(network, 64)
     network = resLayer(network, 128, stride = 2)
     network = resLayer(network, 128)
     network = resLayer(network, 256, stride = 2)
