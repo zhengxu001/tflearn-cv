@@ -5,7 +5,7 @@ from tflearn.layers.normalization import batch_normalization
 from tflearn.activations import relu
 
 def resLayer(x, filters, stride=1):
-    network = conv_2d(x, filters, 3, activation=None, stride=stride)
+    network = conv_2d(x, filters, 3, activation=None, strides=stride)
     network = batch_normalization(network)
     network = relu(network)
     network = conv_2d(network, filters, 3, activation=None)
