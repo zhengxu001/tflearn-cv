@@ -64,8 +64,8 @@ def main(data_dir, hdf5, name):
 
     # Set some variables for training.
     batch_size = 256
-    num_epochs = 72
-    learning_rate = 0.0005
+    num_epochs = 20
+    learning_rate = 0.001
 
     # Load in data.
     X, Y, X_test, Y_test = get_data(data_dir, hdf5)

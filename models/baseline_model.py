@@ -30,7 +30,7 @@ def create_network(img_prep, img_aug, learning_rate):
     network = resLayer(network, 512)
 
     network = fully_connected(network, 1024, activation='relu')
-    network = batch_normalization(network, stddev=0.002, trainable=True, restore=True, reuse=False)
+    network = batch_normalization(network)
     network = dropout(network, 0.5)
     network = fully_connected(network, 200, activation='softmax')
     network = regression(network, optimizer='adam',
