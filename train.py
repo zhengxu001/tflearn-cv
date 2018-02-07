@@ -79,9 +79,10 @@ def main(data_dir, hdf5, name):
     img_aug = tflearn.data_augmentation.ImageAugmentation()
     img_aug.add_random_flip_leftright()
     img_aug.add_random_flip_updown()
+    img_aug.add_random_blur (sigma_max=5.0)
     # img_aug.add_random_90degrees_rotation(rotations=[0, 1, 2, 3])
     img_aug.add_random_rotation (max_angle=60.0)
-    img_aug.add_random_crop((64, 64), 3)
+    # img_aug.add_random_crop((64, 64), 3)
 
     # Get the network definition.
     network = create_network(img_prep, img_aug, learning_rate)

@@ -1,0 +1,1188 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"re",
+				"relu"
+			],
+			[
+				"tf",
+				"tflearn"
+			],
+			[
+				"sec",
+				"\\section{title}                                   \tlatex-document"
+			],
+			[
+				"cite",
+				"\\cite{keylist}                                    \tlatex-document"
+			],
+			[
+				"end",
+				"\\end{document}                                    \tlatex-document"
+			],
+			[
+				"textb",
+				"\\textbf{text}                                     \tlatex-document"
+			],
+			[
+				"de",
+				"decision_tree"
+			],
+			[
+				"fea",
+				"features"
+			],
+			[
+				"feature",
+				"feature_selection"
+			],
+			[
+				"f",
+				"f\tstatement"
+			],
+			[
+				"d",
+				"\\documentclass"
+			],
+			[
+				"fe",
+				"femal"
+			],
+			[
+				"con",
+				"county"
+			],
+			[
+				"va",
+				"villages"
+			],
+			[
+				"a",
+				"a"
+			],
+			[
+				"ro",
+				"ronto"
+			],
+			[
+				"co",
+				"county"
+			],
+			[
+				"lat",
+				"lat"
+			],
+			[
+				"count",
+				"county"
+			],
+			[
+				"coun",
+				"county"
+			],
+			[
+				"T",
+				"TransitiveProperty"
+			],
+			[
+				"sub",
+				"subClassOf"
+			],
+			[
+				"fa",
+				"female"
+			],
+			[
+				"Sc",
+				"School"
+			],
+			[
+				"ins",
+				"instance"
+			],
+			[
+				"to",
+				"to_i"
+			],
+			[
+				"bes",
+				"best_value"
+			],
+			[
+				"acti",
+				"actions"
+			],
+			[
+				"sim",
+				"similar_wiki"
+			],
+			[
+				"si",
+				"similar"
+			],
+			[
+				"q",
+				"q"
+			],
+			[
+				"par",
+				"params"
+			],
+			[
+				"pra",
+				"par\tpartition { |e| .. }"
+			],
+			[
+				"shc",
+				"school"
+			],
+			[
+				"sch",
+				"school"
+			],
+			[
+				"com",
+				"comment"
+			],
+			[
+				"owl",
+				"OWL"
+			],
+			[
+				"so",
+				"solutions"
+			],
+			[
+				"la",
+				"label"
+			],
+			[
+				"defa",
+				"default_geometry"
+			],
+			[
+				"ruby",
+				"rubytask"
+			],
+			[
+				"solu",
+				"solution"
+			],
+			[
+				"req",
+				"require"
+			],
+			[
+				"s",
+				"state"
+			],
+			[
+				"fla",
+				"flag"
+			],
+			[
+				"print",
+				"printf\tprintf …"
+			],
+			[
+				"ca",
+				"capacities"
+			],
+			[
+				"tem",
+				"temp1"
+			],
+			[
+				"te",
+				"temp1"
+			],
+			[
+				"str",
+				"str2"
+			],
+			[
+				"mi",
+				"min\tmin { |a, b| .. }"
+			],
+			[
+				"m",
+				"min\tmin { |a, b| .. }"
+			],
+			[
+				"ste",
+				"step"
+			],
+			[
+				"temp",
+				"temp0"
+			],
+			[
+				"mid",
+				"mid-1"
+			],
+			[
+				"fl",
+				"flag"
+			],
+			[
+				"tr",
+				"true"
+			],
+			[
+				"D",
+				"D"
+			],
+			[
+				"del",
+				"delete_at"
+			],
+			[
+				"if",
+				"if\tif … end"
+			],
+			[
+				"sco",
+				"score"
+			],
+			[
+				"ac",
+				"action_list"
+			],
+			[
+				"c",
+				"c"
+			],
+			[
+				"ne",
+				"next_action"
+			],
+			[
+				"min",
+				"miniMax"
+			],
+			[
+				"in",
+				"index"
+			],
+			[
+				"food",
+				"food_list"
+			],
+			[
+				"get",
+				"getPosition"
+			],
+			[
+				"succ",
+				"successorGameState"
+			],
+			[
+				"go",
+				"ghost"
+			],
+			[
+				"class",
+				"classifier"
+			],
+			[
+				"y_",
+				"y_test"
+			],
+			[
+				"X",
+				"X_test"
+			],
+			[
+				"y",
+				"y_label"
+			],
+			[
+				"y_t",
+				"y_train"
+			],
+			[
+				"data",
+				"data_test"
+			],
+			[
+				"r",
+				"r2"
+			],
+			[
+				"Log",
+				"logistic_regression"
+			],
+			[
+				"tsa",
+				"tasks"
+			],
+			[
+				"ta",
+				"task"
+			],
+			[
+				"cor",
+				"corner"
+			],
+			[
+				"cost",
+				"cost4"
+			],
+			[
+				"nex",
+				"nexty"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"with",
+				"width-2"
+			],
+			[
+				"prob",
+				"problem"
+			],
+			[
+				"corn",
+				"corner"
+			],
+			[
+				"v",
+				"visited_list"
+			],
+			[
+				"path",
+				"pathCost"
+			],
+			[
+				"vis",
+				"_visitedlist"
+			],
+			[
+				"step",
+				"stepList"
+			],
+			[
+				"pare",
+				"parentNode"
+			],
+			[
+				"star",
+				"startPosition"
+			],
+			[
+				"ex",
+				"_expanded"
+			],
+			[
+				"exp",
+				"_expanded"
+			],
+			[
+				"_",
+				"_expanded"
+			],
+			[
+				"No",
+				"None"
+			],
+			[
+				"ga",
+				"gameState"
+			],
+			[
+				"sear",
+				"searchAgents"
+			],
+			[
+				"gam",
+				"gameState"
+			],
+			[
+				"L",
+				"LinearRegression"
+			],
+			[
+				"test",
+				"test_module"
+			],
+			[
+				"shop",
+				"shop"
+			],
+			[
+				"for",
+				"formatter"
+			],
+			[
+				"all",
+				"all_routes"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Anaconda Python Builder",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					""
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Traditional"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"PdfLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"XeLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"LuaLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - PdfLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - XeLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - LuaLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Script Builder"
+				]
+			],
+			[
+				"Packages/LaTeXTools/LaTeX.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/LaTeXing/LaTeX.sublime-build",
+					""
+				],
+				[
+					"Packages/LaTeXing/LaTeX.sublime-build",
+					"Clean up Files"
+				]
+			],
+			[
+				"Packages/LaTeXing/LaTeX.sublime-build",
+				"Clean up Files"
+			]
+		],
+		[
+			[
+				[
+					"Packages/LaTeXing/LaTeX.sublime-build",
+					""
+				],
+				[
+					"Packages/LaTeXing/LaTeX.sublime-build",
+					"Clean up Files"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					""
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Traditional"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"PdfLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"XeLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"LuaLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - PdfLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - XeLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - LuaLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Script Builder"
+				]
+			],
+			[
+				"Packages/LaTeXing/LaTeX.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"tex",
+				"LaTeXTools: View PDF"
+			],
+			[
+				"dis",
+				"Package Control: Disable Package"
+			],
+			[
+				"enal",
+				"Package Control: Enable Package"
+			],
+			[
+				"an",
+				"Anaconda: Run Current Test"
+			],
+			[
+				"reg",
+				"Set Syntax: Regular Expression"
+			],
+			[
+				"ter",
+				"Terminal: Open"
+			],
+			[
+				"TerminalView",
+				"Preferences: Terminal View: Color Scheme"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"relruby",
+				"SublimeREPL: Ruby"
+			],
+			[
+				"SublimeREPL",
+				"Build With: sublimerepl_build_system_hack"
+			],
+			[
+				"te",
+				"Terminal: Open in project folder"
+			],
+			[
+				"git checkout ",
+				"Git: Checkout Current File"
+			],
+			[
+				"git chec",
+				"Git: Checkout Tag"
+			],
+			[
+				"vi",
+				"View: Toggle Status Bar"
+			],
+			[
+				"v",
+				"View: Toggle Open Files in Side Bar"
+			],
+			[
+				"sid",
+				"SideBarHider: Toggle Autohide for Current Window"
+			],
+			[
+				"side",
+				"View: Toggle Side Bar"
+			],
+			[
+				"si",
+				"SideBarHider: Toggle Autohide for Current Window"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"mar",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"ma",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"git qui",
+				"Git: Quick Commit (current file)"
+			],
+			[
+				"git l",
+				"Git: Log All"
+			],
+			[
+				"git add",
+				"Git: Quick Commit (repo, only already added files)"
+			],
+			[
+				"git",
+				"Git: Blame"
+			],
+			[
+				"git log",
+				"Git: Log Current File"
+			],
+			[
+				"enab",
+				"Package Control: Enable Package"
+			],
+			[
+				"Package lis",
+				"Package Control: List Packages"
+			],
+			[
+				"Disable Package",
+				"Package Control: Disable Package"
+			],
+			[
+				"package",
+				"Package Control: List Packages"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"MAR",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 460.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/zen/ta/summarize/week4/CS7IS4-17319652-Zheng-Xu-ArticleSummary-Week4.tex",
+		"/Users/zen/tflearn-demo/models/baseline_model.py",
+		"/Users/zen/tflearn-demo/train.py",
+		"/Users/zen/tflearn-demo/models/resNet.py",
+		"/Users/zen/ta/notebook/notebook-week4/ta_notebook.bib",
+		"/Users/zen/tflearn-demo/datasets/tiny_imagenet.py",
+		"/Users/zen/ta/summarize/week4/ta_notebook.bib",
+		"/Users/zen/ta/summarize/week3/CS7IS4-17319652-Zheng-Xu-ArticleSummary-Week3.tex",
+		"/Users/zen/ta/notebook/notebook-week3/ta_notebook.bib",
+		"/Users/zen/ta/summarize/week3/ta_notebook.bib",
+		"/Users/zen/ta/notebook/notebook-week3/CS7IS4-17319652-Zheng-Xu-ResearchNotebook-Week3.tex",
+		"/Users/zen/columbus-specifications/assets/Daily Commute Use Cases",
+		"/Users/zen/Downloads/Chrome/Daily Commute Use Cases",
+		"/Users/zen/GitBook/Library/zhengxu001/columbus-specifications/SUMMARY.md",
+		"/Users/zen/ta/notebook/notebook-week2/notebook-week2.tex",
+		"/Users/zen/ta/notebook/ta_notebook.bib",
+		"/Users/zen/ta/notebook/notebook-week2/notebook-week2.bbl",
+		"/Users/zen/ta/notebook/notebook.tex",
+		"/Users/zen/ta/notebook.tex",
+		"/Users/zen/ase/test.tex",
+		"/Users/zen/ase/Summary 1/summary-1.tex",
+		"/Users/zen/Desktop/train.log",
+		"/Users/zen/Dropbox/cuda/NVIDIA_SLA_cuDNN_Support.txt",
+		"/Users/zen/Downloads/Chrome/cuda/NVIDIA_SLA_cuDNN_Support.txt",
+		"/Users/zen/ai-assignment/search/search.py",
+		"/Users/zen/Dropbox/KDE/ui-code/r-ontology/script/output-owl/r-ontology.ttl",
+		"/Users/zen/Dropbox/KDE/KDE-Dataset/conty.ttl",
+		"/Users/zen/Downloads/Chrome/PeriodicTable.owl",
+		"/Users/zen/Desktop/left_right_v2.py",
+		"/Users/zen/Downloads/FIRSTNAME_LASTNAME_CS7IS2_2017_Final_Report/author.tex",
+		"/Users/zen/assignment-3/task-2/training.py",
+		"/Users/zen/assignment-3/task-2/loding_data.py",
+		"/Users/zen/assignment-3/README.md",
+		"/Users/zen/assignment-3/task-2/evaluation.py",
+		"/Users/zen/assignment-3/white_wine",
+		"/Users/zen/assignment-3/task-2/config.py",
+		"/Users/zen/assignment-3/red_wine",
+		"/Users/zen/tflearn-demo/.gitignore",
+		"/Users/zen/tflearn-demo/data/tiny-imagenet-200/train/n03100240/n03100240_boxes.txt",
+		"/Users/zen/tflearn-demo/data/tiny-imagenet-200/train/n01742172/n01742172_boxes.txt",
+		"/Users/zen/assignment-3/task-2/temp",
+		"/Users/zen/anaconda2/lib/python2.7/site-packages/sklearn/metrics/scorer.py",
+		"/Users/zen/Dropbox/team_02/task3 (cherry evaluation), team_02/task3, team_02, cherry evaluation, source code/training.py",
+		"/Users/zen/kde/r-ontology/public/r-ontology.owl",
+		"/Users/zen/Dropbox/team_02/task3 (cherry evaluation), team_02/task3, team_02, cherry evaluation, source code/evaluation.py",
+		"/Users/zen/assignment-3/task-2/Wine Quality Ratings and Chemicals/combine.csv",
+		"/Users/zen/assignment-3/task-2/Wine Quality Ratings and Chemicals/winequality-red.csv",
+		"/Users/zen/Library/Application Support/Sublime Text 3/Packages/Anaconda/Anaconda.sublime-settings",
+		"/Users/zen/Library/Application Support/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
+		"/Users/zen/Downloads/config.py.icloud",
+		"/Users/zen/Desktop/Net Zero Energy Buildings.md",
+		"/Users/zen/latex/test.tex",
+		"/Users/zen/Library/Application Support/Sublime Text 3/Packages/Terminal/Terminal.sublime-settings",
+		"/Users/zen/python_basics/test.py",
+		"/Users/zen/python_basics/shopTest.py",
+		"/Users/zen/kde/r-ontology/script/init.rb",
+		"/Users/zen/kde/r-ontology/.gitignore",
+		"/Users/zen/kde/r-ontology/script/init_r_models.rb",
+		"/Users/zen/kde/r-ontology/script/big-r-ontology.ttl",
+		"/Users/zen/kde/r-ontology/Gemfile",
+		"/Users/zen/kde/r-ontology/app/controllers/searches_controller.rb",
+		"/Users/zen/latex/test.",
+		"/Users/zen/Library/Application Support/Sublime Text 3/Packages/User/LaTeXTools.sublime-settings",
+		"/Users/zen/Desktop/test.tex",
+		"/Users/zen/Desktop/1610.07629.ris.txt",
+		"/Users/zen/scipy/circle.yml",
+		"/Users/zen/random.rb",
+		"/Users/zen/test.py",
+		"/Users/zen/.ssh/id_rsa.pub",
+		"/Users/zen/Desktop/Product.n3",
+		"/Users/zen/Dropbox/KDE/r-ontology.owl",
+		"/Users/zen/kde/r-ontology/config/routes.rb",
+		"/Users/zen/kde/r-ontology/script/Acknowledgments",
+		"/Users/zen/cv-presentation/public/conv-demo/5.html",
+		"/Users/zen/cv-presentation/public/conv-demo/3.html",
+		"/Users/zen/cv-presentation/public/conv-demo/7.html",
+		"/Users/zen/kde/r-ontology/README.md",
+		"/Users/zen/cs231n.github.io/assets/eg/spiral_linear.png",
+		"/Users/zen/kde/r-ontology/app/views/searches/index.html.erb",
+		"/Users/zen/kde/r-ontology/config/initializers/init_r_models.rb",
+		"/Users/zen/kde/r-ontology/app/views/searches/_form.html.erb",
+		"/Users/zen/kde/r-ontology/app/views/layouts/application.html.erb",
+		"/Users/zen/kde/r-ontology/config/initializers/r-ontology.ttl",
+		"/Users/zen/kde/r-ontology/script/output-owl/r-ontology.ttl",
+		"/Users/zen/kde/r-ontology/script/small_datasets/school.csv",
+		"/Users/zen/kde/r-ontology/script/small_datasets/education.csv",
+		"/Users/zen/Desktop/r-ontology.owl",
+		"/Users/zen/kde/r-ontology/r-script/output-owl/r-ontology.ttl",
+		"/Users/zen/kde/r-ontology/r-script/init.rb",
+		"/Users/zen/kde/r-ontology/r-script/init_model.rb",
+		"/Users/zen/kde/r-ontology/r-script/education.rb",
+		"/Users/zen/kde/r-ontology/r-script/county-school.rb",
+		"/Users/zen/kde/r-ontology/r-script/small_datasets/school.csv",
+		"/Users/zen/kde/r-ontology/r-script/small_datasets/education.csv",
+		"/Users/zen/kde/r-ontology/r-script/datasets/school.csv",
+		"/Users/zen/kde/r-ontology/r-script/datasets/education.csv",
+		"/Users/zen/kde/r-ontology/r-script/datasets/boundaries-links.ttl",
+		"/Users/zen/kde/r-ontology/r-script/output-owl/school.ttl",
+		"/Users/zen/ai-assignment/reinforcement/README.md",
+		"/Users/zen/kde/r-ontology/r-script/output-owl/county.ttl",
+		"/Users/zen/kde/r-ontology/r-script/sql",
+		"/Users/zen/Desktop/Product.owl.xml",
+		"/Users/zen/kde/r-script/education.rb",
+		"/Users/zen/kde/r-script/county-school.rb",
+		"/Users/zen/kde/r-script/school.csv",
+		"/Users/zen/kde/r-script/coordinate.rb",
+		"/Users/zen/kde/r-script/county.ttl",
+		"/Users/zen/kde/r-script/school.ttl",
+		"/Users/zen/kde/r-script/county.rb",
+		"/Users/zen/kde/r-script/boundaries-links.ttl",
+		"/Users/zen/kde/r-ontology/config/initializers/education.rb",
+		"/Users/zen/kde/r-ontology/config/initializers/county.rb",
+		"/Users/zen/kde/r-ontology/config/initializers/county_school.rb",
+		"/Users/zen/kde/education.rb",
+		"/Users/zen/kde/r-ontology/education.ttl",
+		"/Users/zen/kde/Education.csv",
+		"/Users/zen/kde/Migration-Ethnicity-Religion.csv",
+		"/Users/zen/kde/r-ontology/sql",
+		"/Users/zen/kde/r-ontology/education.rb",
+		"/Users/zen/kde/r-ontology/Migration-Ethnicity-Religion.csv",
+		"/Users/zen/kde/r-ontology/education.csv",
+		"/Users/zen/kde/r-ontology/config/application.rb",
+		"/Users/zen/kde/r-ontology/config/initializers/school.rb",
+		"/Users/zen/kde/r-ontology/1,001 Carlow Urban,Carlow,SE,South-East,Southern,3",
+		"/Users/zen/kde/r-ontology/,",
+		"/Users/zen/movielens100k/ml-100k/mku.sh",
+		"/Users/zen/movielens100k/ml-100k/u.data",
+		"/Users/zen/movielens100k/ml-100k/README"
+	],
+	"find":
+	{
+		"height": 39.0
+	},
+	"find_in_files":
+	{
+		"height": 172.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 60.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 369.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 102.0
+	},
+	"output.latextools":
+	{
+		"height": 192.0
+	},
+	"output.markdown":
+	{
+		"height": 102.0
+	},
+	"pinned_build_system": "",
+	"project": "dl-project-181713.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"con",
+				"task-2/config.py"
+			],
+			[
+				"test.py",
+				"shopTest.py"
+			],
+			[
+				"searcon",
+				"app/controllers/searches_controller.rb"
+			],
+			[
+				"ge",
+				"Gemfile"
+			],
+			[
+				"routes",
+				"config/routes.rb"
+			],
+			[
+				"searind",
+				"app/views/searches/index.html.erb"
+			],
+			[
+				"searshow",
+				"app/views/searches/show.html.erb"
+			],
+			[
+				"script/acknowledgments",
+				"script/Acknowledgments"
+			],
+			[
+				"application.html.erb",
+				"app/views/layouts/application.html.erb"
+			],
+			[
+				"gridworld.py",
+				"gridworld.py"
+			],
+			[
+				"val",
+				"valueIterationAgents.py"
+			],
+			[
+				"ed",
+				"r-ontology/education.ttl"
+			],
+			[
+				"searchco",
+				"r-ontology/app/controllers/searches_controller.rb"
+			],
+			[
+				"searchcon",
+				"app/controllers/searches_controller.rb"
+			],
+			[
+				"searchcont",
+				"app/controllers/searches_controller.rb"
+			],
+			[
+				"viewsear",
+				"app/views/searches/index.html.erb"
+			],
+			[
+				"mapc",
+				"app/controllers/maps_controller.rb"
+			],
+			[
+				"vendor",
+				"vendor/.keep"
+			],
+			[
+				"gem",
+				"Gemfile"
+			],
+			[
+				"mapcon",
+				"app/controllers/maps_controller.rb"
+			],
+			[
+				"ma",
+				"app/models/map.rb"
+			],
+			[
+				"application.js",
+				"app/assets/javascripts/application.js"
+			],
+			[
+				"searchc",
+				"app/controllers/searches_controller.rb"
+			],
+			[
+				"bootstrap_and_overrides.less",
+				"app/assets/stylesheets/bootstrap_and_overrides.css.less"
+			],
+			[
+				"application.css",
+				"app/assets/stylesheets/application.css"
+			],
+			[
+				"analysis.py",
+				"analysis.py"
+			],
+			[
+				"analysis",
+				"analysis.py"
+			],
+			[
+				"dat",
+				"demo-project/config/database.yml"
+			],
+			[
+				"util",
+				"util.py"
+			],
+			[
+				"sear",
+				"search.py"
+			],
+			[
+				"searc",
+				"searchAgents.py"
+			],
+			[
+				"se",
+				"search.py"
+			],
+			[
+				"pac",
+				"pacman.py"
+			],
+			[
+				"sea",
+				"search.py"
+			],
+			[
+				"graph_bfs_vs_dfs.test",
+				"search/test_cases/q1/graph_bfs_vs_dfs.test"
+			],
+			[
+				"searchagents.py",
+				"searchAgents.py"
+			],
+			[
+				"task1/sum_wi_noise.py",
+				"task1/sum_wi_noise.py"
+			],
+			[
+				"route",
+				"config/routes.rb"
+			],
+			[
+				"apido",
+				"app/controllers/apidoc_controller.rb"
+			],
+			[
+				"rout",
+				"config/routes.rb"
+			],
+			[
+				"routsx",
+				"tmp/cache/assets/development/sprockets/v3.0/yiAKIGnUTM6OuTezSXRMLaXo-Iq0_0flEi-MCRhHBqo.cache"
+			],
+			[
+				"config/application.rb",
+				"config/application.rb"
+			],
+			[
+				"app/assets/stylesheets/application.scss",
+				"app/assets/stylesheets/application.css.scss"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 451.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
