@@ -91,6 +91,8 @@ def main(name, num_epochs, aug_strategy, model):
     print("Start" + name)
     batch_size = 256
     learning_rate = 0.001
+    data_dir = "data/tiny-imagenet-200"
+
     X, Y, X_test, Y_test = get_data(data_dir)
 
     img_prep = image_preprocess()
