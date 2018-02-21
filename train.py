@@ -103,7 +103,7 @@ def main(data_dir, hdf5, name):
     model2 = tflearn.DNN(network, tensorboard_verbose=0, tensorboard_dir='tensorboard', best_checkpoint_path=checkpoint_path)
     model2.load(name)
     a = model.evaluate(X_test, Y_test, batch_size=batch_size)
-    p a
+    print(a)
 
 if __name__ == '__main__':
     # Parse arguments and create output directories.
