@@ -78,9 +78,9 @@ def image_preprocess():
 def create_net(model, img_prep, img_aug, learning_rate):
     if model == "alex":
         network = alexNet(img_prep, img_aug, learning_rate)
-    elif model = "vgg":
+    elif model == "vgg":
         network = vggNet(img_prep, img_aug, learning_rate)
-    elif model = "res":
+    elif model == "res":
         network = resNet(img_prep, img_aug, learning_rate)
     else:
         network = alchNet(img_prep, img_aug, learning_rate)
@@ -88,6 +88,7 @@ def create_net(model, img_prep, img_aug, learning_rate):
     return network
 
 def main(name, num_epochs, aug_strategy="NA", model):
+    print("Start" + name)
     batch_size = 256
     learning_rate = 0.001
     X, Y, X_test, Y_test = get_data(data_dir)
