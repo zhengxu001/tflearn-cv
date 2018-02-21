@@ -87,7 +87,7 @@ def create_net(model, img_prep, img_aug, learning_rate):
 
     return network
 
-def main(name, num_epochs, aug_strategy="NA", model):
+def main(name, num_epochs, aug_strategy, model):
     print("Start" + name)
     batch_size = 256
     learning_rate = 0.001
@@ -128,22 +128,18 @@ def main(name, num_epochs, aug_strategy="NA", model):
 if __name__ == '__main__':
     # Parse arguments and create output directories.
     parser = argparse.ArgumentParser()
-    parser.add_argument('--hdf5',
-                        default= "true",
-                        help='Set if hdf5 database should be created.',
-                        action='store_true')
     parser.add_argument('--name', type=str,
                         default='default',
                         help='Name of this training run. Will store results in output/[name]')
     parser.add_argument('--num_epochs', type=int,
-                        default=20,
+                        default=30,
+                        help='Name of this training run. Will store results in output/[name]')
+    parser.add_argument('--aug_strategy', type=str,
+                        default='default',
                         help='Name of this training run. Will store results in output/[name]')
     parser.add_argument('--model', type=str,
                         default='alch',
                         help='model name')
-    parser.add_argument('--aug_strategy', type=str,
-                        default='default',
-                        help='Name of this training run. Will store results in output/[name]')
     args, unparsed = parser.parse_known_args()
     if not os.path.exists('tensorboard'):
         os.makedirs('tensorboard')
