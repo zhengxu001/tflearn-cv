@@ -9,5 +9,5 @@ models = ["alex", "vgg", "res"]
 for aug in augmentations:
 	for epoch in epochs:
 		for model in models:
-			train.main(model+aug+epoch, epoch, aug, model)
+			train.main(model+aug+str(epoch), epoch, aug, model)
 			
