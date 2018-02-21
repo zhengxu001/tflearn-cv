@@ -112,6 +112,7 @@ if __name__ == '__main__':
                         default='data/tiny-imagenet-200',
                         help='Directory in which the input data is stored.')
     parser.add_argument('--hdf5',
+                        default= "true",
                         help='Set if hdf5 database should be created.',
                         action='store_true')
     parser.add_argument('--name', type=str,
