@@ -18,7 +18,7 @@ def create_network(img_prep, img_aug, learning_rate):
         The network."""
 
     # Input shape will be [batch_size, height, width, channels].
-    network = input_data(shape=[None, 256, 256, 3],
+    network = input_data(shape=[None, 224, 224, 3],
                          data_preprocessing=img_prep,
                          data_augmentation=img_aug)
     # First convolution layer. 32 filters of size 5. Activation function ReLU. 64x64x3 -> 64x64x32
