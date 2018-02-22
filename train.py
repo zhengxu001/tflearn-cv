@@ -7,7 +7,8 @@ import h5py
 sys.path.insert(0, os.path.dirname(__file__))
 
 from datasets.tiny_imagenet import *
-from models.alchNet import *
+from models.alchNet11 import alchNet11
+from models.alchNet19 import alchNet19
 from models.vggNet import *
 from models.resNet import *
 from models.alexNet import *
@@ -46,11 +47,13 @@ def get_data(data_dir, model):
 
 def set_data_augmentation(model, aug_strategy):
     if aug_strategy!="NA":
+        print("Use Flip and Random Crop as data augmentation\n")
         img_aug = tflearn.data_augmentation.ImageAugmentation()
         img_aug.add_random_flip_leftright()
         img_aug.add_random_flip_updown()
         img_aug.add_random_crop((64,64), 4)
     else:
+        print("Do not use data augmentation\n")
         img_aug = tflearn.data_augmentation.ImageAugmentation()
 
     return img_aug
@@ -68,9 +71,12 @@ def create_net(model, img_prep, img_aug, learning_rate):
         network = vggNet(img_prep, img_aug, learning_rate)
     elif model == "res":
         network = resNet(img_prep, img_aug, learning_rate)
-    else:
-        network = alchNet(img_prep, img_aug, learning_rate)
-
+    elif model == "alch11":
+        network = alchNet11(img_prep, img_aug, learning_rate)
+    elif model == "alch11_without_dropout":
+        network = alchNet11(img_prep, img_aug, learning_rate, 0)
+    else model == "alch19":
+        network = alchNet19(img_prep, img_aug, learning_rate)
     return network
 
 def main(name, num_epochs, aug_strategy, model):
