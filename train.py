@@ -20,45 +20,45 @@ from tflearn.data_utils import shuffle
 
 def get_data(data_dir, model):
     train_file, val_file = build_dataset_index(data_dir)
-    # if not os.path.exists('hdf5'):
-    #     os.makedirs('hdf5')
-    # # Check if hdf5 databases already exist and create them if not.
-    # if not os.path.exists('hdf5/tiny-imagenet_train.h5'):
-    #     from tflearn.data_utils import build_hdf5_image_dataset
-    #     print('Creating hdf5 train dataset.')
-    #     build_hdf5_image_dataset(train_file, image_shape=(256, 256), mode='file', output_path='hdf5/tiny-imagenet_train.h5', categorical_labels=True, normalize=True)
+    if not os.path.exists('hdf5'):
+        os.makedirs('hdf5')
+    # Check if hdf5 databases already exist and create them if not.
+    if not os.path.exists('hdf5/tiny-imagenet_train.h5'):
+        from tflearn.data_utils import build_hdf5_image_dataset
+        print('Creating hdf5 train dataset.')
+        build_hdf5_image_dataset(train_file, image_shape=(256, 256), mode='file', output_path='hdf5/tiny-imagenet_train.h5', categorical_labels=True, normalize=True)
 
-    # if not os.path.exists('hdf5/tiny-imagenet_val_224.h5'):
-    #     from tflearn.data_utils import build_hdf5_image_dataset
-    #     print(' Creating hdf5(224) val dataset.')
-    #     build_hdf5_image_dataset(val_file, image_shape=(224, 224), mode='file', output_path='hdf5/tiny-imagenet_val_224.h5', categorical_labels=True, normalize=True)
+    if not os.path.exists('hdf5/tiny-imagenet_val_224.h5'):
+        from tflearn.data_utils import build_hdf5_image_dataset
+        print(' Creating hdf5(224) val dataset.')
+        build_hdf5_image_dataset(val_file, image_shape=(224, 224), mode='file', output_path='hdf5/tiny-imagenet_val_224.h5', categorical_labels=True, normalize=True)
 
-    # if not os.path.exists('hdf5/tiny-imagenet_val_227.h5'):
-    #     from tflearn.data_utils import build_hdf5_image_dataset
-    #     print(' Creating hdf5 val(227) dataset.')
-    #     build_hdf5_image_dataset(val_file, image_shape=(227, 227), mode='file', output_path='hdf5/tiny-imagenet_val_227.h5', categorical_labels=True, normalize=True)
+    if not os.path.exists('hdf5/tiny-imagenet_val_227.h5'):
+        from tflearn.data_utils import build_hdf5_image_dataset
+        print(' Creating hdf5 val(227) dataset.')
+        build_hdf5_image_dataset(val_file, image_shape=(227, 227), mode='file', output_path='hdf5/tiny-imagenet_val_227.h5', categorical_labels=True, normalize=True)
 
     # Load training data from hdf5 dataset.
-    from tflearn.data_utils import image_preloader
-    X, Y = image_preloader(train_file, image_shape=(256, 256), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
-    if model!="alex":    
-        X_test, Y_test = image_preloader(val_file, image_shape=(224, 224), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
-    else:
-        X_test, Y_test = image_preloader(val_file, image_shape=(227, 227), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
-
-    # h5f = h5py.File('hdf5/tiny-imagenet_train.h5', 'r')
-    # X = h5f['X']
-    # Y = h5f['Y']
-
-    # Load validation data.
-    # if model!="alex":
-    #     h5f = h5py.File('hdf5/tiny-imagenet_val_224.h5', 'r')
-    #     X_test = h5f['X']
-    #     Y_test = h5f['Y']
+    # from tflearn.data_utils import image_preloader
+    # X, Y = image_preloader(train_file, image_shape=(256, 256), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
+    # if model!="alex":    
+    #     X_test, Y_test = image_preloader(val_file, image_shape=(224, 224), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
     # else:
-    #     h5f = h5py.File('hdf5/tiny-imagenet_val_227.h5', 'r')
-    #     X_test = h5f['X']
-    #     Y_test = h5f['Y']
+    #     X_test, Y_test = image_preloader(val_file, image_shape=(227, 227), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
+
+    h5f = h5py.File('hdf5/tiny-imagenet_train.h5', 'r')
+    X = h5f['X']
+    Y = h5f['Y']
+
+    Load validation data.
+    if model!="alex":
+        h5f = h5py.File('hdf5/tiny-imagenet_val_224.h5', 'r')
+        X_test = h5f['X']
+        Y_test = h5f['Y']
+    else:
+        h5f = h5py.File('hdf5/tiny-imagenet_val_227.h5', 'r')
+        X_test = h5f['X']
+        Y_test = h5f['Y']
 
     return X, Y, X_test, Y_test
 
@@ -102,7 +102,7 @@ def main(name, num_epochs, aug_strategy, model):
         os.makedirs('output')
 
     print("Start" + name)
-    batch_size = 64
+    batch_size = 128
     learning_rate = 0.001
     data_dir = "data/tiny-imagenet-200"
 
@@ -112,9 +112,9 @@ def main(name, num_epochs, aug_strategy, model):
     img_aug = set_data_augmentation(model, aug_strategy)
     network = create_net(model, img_prep, img_aug, learning_rate)
     checkpoint_path = 'output/'+name+'/'
-    # sess = tflearn.DNN(network, tensorboard_verbose=0, tensorboard_dir='tensorboard', best_checkpoint_path=checkpoint_path)
-    # sess.fit(X, Y, n_epoch=num_epochs, shuffle=True, validation_set=(X_test, Y_test),
-    # show_metric=True, batch_size=batch_size, run_id=name)
+    sess = tflearn.DNN(network, tensorboard_verbose=0, tensorboard_dir='tensorboard', best_checkpoint_path=checkpoint_path)
+    sess.fit(X, Y, n_epoch=num_epochs, shuffle=True, validation_set=(X_test, Y_test),
+    show_metric=True, batch_size=batch_size, run_id=name)
     
     # network = create_net(model, img_prep, img_aug, learning_rate)
     # network = regression(network, optimizer='adam',
@@ -122,10 +122,10 @@ def main(name, num_epochs, aug_strategy, model):
     #                      learning_rate=learning_rate,
     #                      metric=tflearn.metrics.Top_k(k=1)
     #                     )
-    model_1 = tflearn.DNN(network, tensorboard_verbose=0, tensorboard_dir='tensorboard', best_checkpoint_path=checkpoint_path)
-    model_1.load(checkpoint_path + '1907', weights_only=True)
-    a = model_1.evaluate(X_test, Y_test, batch_size=batch_size)
-    print(a)
+    # model_1 = tflearn.DNN(network, tensorboard_verbose=0, tensorboard_dir='tensorboard', best_checkpoint_path=checkpoint_path)
+    # model_1.load(checkpoint_path + '1907', weights_only=True)
+    # a = model_1.evaluate(X_test, Y_test, batch_size=batch_size)
+    # print(a)
 
     # network = create_net(model, img_prep, img_aug, learning_rate)
     # network = regression(network, optimizer='adam',
