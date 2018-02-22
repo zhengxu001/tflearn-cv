@@ -19,7 +19,7 @@ from models.alexNet import *
 from tflearn.data_utils import shuffle
 
 def get_data(data_dir, model):
-    # train_file, val_file = build_dataset_index(data_dir)
+    train_file, val_file = build_dataset_index(data_dir)
     # if not os.path.exists('hdf5'):
     #     os.makedirs('hdf5')
     # # Check if hdf5 databases already exist and create them if not.
