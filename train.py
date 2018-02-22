@@ -90,7 +90,8 @@ def create_net(model, img_prep, img_aug, learning_rate):
     elif model == "res":
         network = resNet(img_prep, img_aug, learning_rate)
     else:
-        network = alchNet(img_prep, img_aug, learning_rate)
+        # network = alchNet(img_prep, img_aug, learning_rate)
+        network = create_network(img_prep, img_aug, learning_rate)
 
     return network
 
@@ -119,7 +120,7 @@ def main(name, num_epochs, aug_strategy, model):
     network = regression(network, optimizer='adam',
                          loss='categorical_crossentropy',
                          learning_rate=learning_rate,
-                         metric=Top_k(k=1)
+                         metric=tflearn.metrics.Top_k(k=1)
                         )
     model_1 = tflearn.DNN(network, tensorboard_verbose=0, tensorboard_dir='tensorboard', best_checkpoint_path=checkpoint_path)
     model_1.load(checkpoint_path + 'checkpoint')
@@ -129,7 +130,7 @@ def main(name, num_epochs, aug_strategy, model):
     network = regression(network, optimizer='adam',
                          loss='categorical_crossentropy',
                          learning_rate=learning_rate,
-                         metric=Top_k(k=5)
+                         metric=tflearn.metrics.Top_k(k=5)
                         )
     model_2 = tflearn.DNN(network, tensorboard_verbose=0, tensorboard_dir='tensorboard', best_checkpoint_path=checkpoint_path)
     model_2.load(checkpoint_path + 'checkpoint')
