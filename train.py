@@ -31,12 +31,12 @@ def get_data(data_dir):
     if not os.path.exists('hdf5/tiny-imagenet_val_224.h5'):
         from tflearn.data_utils import build_hdf5_image_dataset
         print(' Creating hdf5(224) val dataset.')
-        build_hdf5_image_dataset(val_file, image_shape=(224, 224), mode='file', output_path='hdf5/tiny-imagenet_val.h5', categorical_labels=True, normalize=True)
+        build_hdf5_image_dataset(val_file, image_shape=(224, 224), mode='file', output_path='hdf5/tiny-imagenet_val_224.h5', categorical_labels=True, normalize=True)
 
     if not os.path.exists('hdf5/tiny-imagenet_val_227.h5'):
         from tflearn.data_utils import build_hdf5_image_dataset
         print(' Creating hdf5 val(227) dataset.')
-        build_hdf5_image_dataset(val_file, image_shape=(227, 227), mode='file', output_path='hdf5/tiny-imagenet_val.h5', categorical_labels=True, normalize=True)
+        build_hdf5_image_dataset(val_file, image_shape=(227, 227), mode='file', output_path='hdf5/tiny-imagenet_val_227.h5', categorical_labels=True, normalize=True)
 
     # Load training data from hdf5 dataset.
     h5f = h5py.File('hdf5/tiny-imagenet_train.h5', 'r')
