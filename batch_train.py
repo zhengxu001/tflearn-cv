@@ -5,8 +5,8 @@ augmentations = ["FLIP"]
 # epochs = [50]
 epochs = [2]
 # models = ["alex", "vgg", "res", "alch"]
-models = ["alex", "vgg", "res"]
-# models = ["baseline"]
+# models = ["alex", "vgg", "res"]
+models = ["baseline"]
 for aug in augmentations:
 	for epoch in epochs:
 		for model in models:
