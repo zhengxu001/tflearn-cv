@@ -123,7 +123,7 @@ def main(name, num_epochs, aug_strategy, model):
                          metric=tflearn.metrics.Top_k(k=1)
                         )
     model_1 = tflearn.DNN(network, tensorboard_verbose=0, tensorboard_dir='tensorboard', best_checkpoint_path=checkpoint_path)
-    model_1.load(checkpoint_path + 'checkpoint')
+    model_1.load(checkpoint_path + 'checkpoint', weights_only=True)
     a = model_1.evaluate(X_test, Y_test, batch_size=batch_size)
 
     network = create_net(model, img_prep, img_aug, learning_rate)
@@ -133,7 +133,7 @@ def main(name, num_epochs, aug_strategy, model):
                          metric=tflearn.metrics.Top_k(k=5)
                         )
     model_2 = tflearn.DNN(network, tensorboard_verbose=0, tensorboard_dir='tensorboard', best_checkpoint_path=checkpoint_path)
-    model_2.load(checkpoint_path + 'checkpoint')
+    model_2.load(checkpoint_path + 'checkpoint', weights_only=True)
     b = model_2.evaluate(X_test, Y_test, batch_size=batch_size)
     import csv
     with open('results.csv', 'wb') as csvfile:
