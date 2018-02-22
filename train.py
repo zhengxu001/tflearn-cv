@@ -38,7 +38,8 @@ def get_data(data_dir, model):
     # h5f = h5py.File('hdf5/tiny-imagenet_val.h5', 'r')
     # X_test = h5f['X']
     # Y_test = h5f['Y']
-    # from tflearn.data_utils import image_preloader
+
+    from tflearn.data_utils import image_preloader
     X, Y = image_preloader(train_file, image_shape=(64, 64), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
     X_test, Y_test = image_preloader(val_file, image_shape=(64, 64), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
     return X, Y, X_test, Y_test
