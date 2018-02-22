@@ -42,7 +42,7 @@ def get_data(data_dir, model):
     # from tflearn.data_utils import image_preloader
     # X, Y = image_preloader(train_file, image_shape=(64, 64), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
     # X_test, Y_test = image_preloader(val_file, image_shape=(64, 64), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
-    # return X, Y, X_test, Y_test
+    return X, Y, X_test, Y_test
 
 def set_data_augmentation(model, aug_strategy):
     if aug_strategy!="NA":
