@@ -96,7 +96,7 @@ def main(name, num_epochs, aug_strategy, model):
     X, Y, X_test, Y_test = get_data(data_dir, model)
 
     img_prep = image_preprocess()
-    img_aug = set_data_augmentation(aug_strategy)
+    img_aug = set_data_augmentation(model, aug_strategy)
     network = create_net(model, img_prep, img_aug, learning_rate)
     checkpoint_path = 'output/'+name+'/'
     sess = tflearn.DNN(network, tensorboard_verbose=0, tensorboard_dir='tensorboard', best_checkpoint_path=checkpoint_path)
