@@ -20,6 +20,7 @@ from tflearn.data_utils import shuffle
 
 def get_data(data_dir, model):
     train_file, val_file = build_dataset_index(data_dir)
+    from tflearn.data_utils import image_preloader
     X, Y = image_preloader(train_file, image_shape=(256, 256), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
     if model!="alex":    
         X_test, Y_test = image_preloader(val_file, image_shape=(224, 224), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
