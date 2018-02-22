@@ -20,45 +20,11 @@ from tflearn.data_utils import shuffle
 
 def get_data(data_dir, model):
     train_file, val_file = build_dataset_index(data_dir)
-    if not os.path.exists('hdf5'):
-        os.makedirs('hdf5')
-    # Check if hdf5 databases already exist and create them if not.
-    if not os.path.exists('hdf5/tiny-imagenet_train.h5'):
-        from tflearn.data_utils import build_hdf5_image_dataset
-        print('Creating hdf5 train dataset.')
-        build_hdf5_image_dataset(train_file, image_shape=(256, 256), mode='file', output_path='hdf5/tiny-imagenet_train.h5', categorical_labels=True, normalize=True)
-
-    if not os.path.exists('hdf5/tiny-imagenet_val_224.h5'):
-        from tflearn.data_utils import build_hdf5_image_dataset
-        print(' Creating hdf5(224) val dataset.')
-        build_hdf5_image_dataset(val_file, image_shape=(224, 224), mode='file', output_path='hdf5/tiny-imagenet_val_224.h5', categorical_labels=True, normalize=True)
-
-    if not os.path.exists('hdf5/tiny-imagenet_val_227.h5'):
-        from tflearn.data_utils import build_hdf5_image_dataset
-        print(' Creating hdf5 val(227) dataset.')
-        build_hdf5_image_dataset(val_file, image_shape=(227, 227), mode='file', output_path='hdf5/tiny-imagenet_val_227.h5', categorical_labels=True, normalize=True)
-
-    # Load training data from hdf5 dataset.
-    # from tflearn.data_utils import image_preloader
-    # X, Y = image_preloader(train_file, image_shape=(256, 256), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
-    # if model!="alex":    
-    #     X_test, Y_test = image_preloader(val_file, image_shape=(224, 224), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
-    # else:
-    #     X_test, Y_test = image_preloader(val_file, image_shape=(227, 227), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
-
-    h5f = h5py.File('hdf5/tiny-imagenet_train.h5', 'r')
-    X = h5f['X']
-    Y = h5f['Y']
-
-    # Load validation data.
-    if model!="alex":
-        h5f = h5py.File('hdf5/tiny-imagenet_val_224.h5', 'r')
-        X_test = h5f['X']
-        Y_test = h5f['Y']
+    X, Y = image_preloader(train_file, image_shape=(256, 256), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
+    if model!="alex":    
+        X_test, Y_test = image_preloader(val_file, image_shape=(224, 224), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
     else:
-        h5f = h5py.File('hdf5/tiny-imagenet_val_227.h5', 'r')
-        X_test = h5f['X']
-        Y_test = h5f['Y']
+        X_test, Y_test = image_preloader(val_file, image_shape=(227, 227), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
 
     return X, Y, X_test, Y_test
 
