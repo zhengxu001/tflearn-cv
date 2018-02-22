@@ -18,7 +18,7 @@ from models.alexNet import *
 
 from tflearn.data_utils import shuffle
 
-def get_data(data_dir):
+def get_data(data_dir, model):
     train_file, val_file = build_dataset_index(data_dir)
     if not os.path.exists('hdf5'):
         os.makedirs('hdf5')
@@ -93,7 +93,7 @@ def main(name, num_epochs, aug_strategy, model):
     learning_rate = 0.001
     data_dir = "data/tiny-imagenet-200"
 
-    X, Y, X_test, Y_test = get_data(data_dir)
+    X, Y, X_test, Y_test = get_data(data_dir, model)
 
     img_prep = image_preprocess()
     img_aug = set_data_augmentation(aug_strategy)
