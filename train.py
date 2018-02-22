@@ -61,9 +61,9 @@ def set_data_augmentation(model, aug_strategy):
         img_aug.add_random_flip_leftright()
         img_aug.add_random_flip_updown()
         if model!="alex":
-            img_aug.add_random_crop(224)
+            img_aug.add_random_crop((224,224))
         else:
-            img_aug.add_random_crop(227)
+            img_aug.add_random_crop((227,227))
     else:
         img_aug = tflearn.data_augmentation.ImageAugmentation()
 
