@@ -112,33 +112,34 @@ def main(name, num_epochs, aug_strategy, model):
     img_aug = set_data_augmentation(model, aug_strategy)
     network = create_net(model, img_prep, img_aug, learning_rate)
     checkpoint_path = 'output/'+name+'/'
-    sess = tflearn.DNN(network, tensorboard_verbose=0, tensorboard_dir='tensorboard', best_checkpoint_path=checkpoint_path)
+    # sess = tflearn.DNN(network, tensorboard_verbose=0, tensorboard_dir='tensorboard', best_checkpoint_path=checkpoint_path)
     # sess.fit(X, Y, n_epoch=num_epochs, shuffle=True, validation_set=(X_test, Y_test),
     # show_metric=True, batch_size=batch_size, run_id=name)
     
-    network = create_net(model, img_prep, img_aug, learning_rate)
-    network = regression(network, optimizer='adam',
-                         loss='categorical_crossentropy',
-                         learning_rate=learning_rate,
-                         metric=tflearn.metrics.Top_k(k=1)
-                        )
+    # network = create_net(model, img_prep, img_aug, learning_rate)
+    # network = regression(network, optimizer='adam',
+    #                      loss='categorical_crossentropy',
+    #                      learning_rate=learning_rate,
+    #                      metric=tflearn.metrics.Top_k(k=1)
+    #                     )
     model_1 = tflearn.DNN(network, tensorboard_verbose=0, tensorboard_dir='tensorboard', best_checkpoint_path=checkpoint_path)
     model_1.load(checkpoint_path + 'checkpoint', weights_only=True)
     a = model_1.evaluate(X_test, Y_test, batch_size=batch_size)
+    print(a)
 
-    network = create_net(model, img_prep, img_aug, learning_rate)
-    network = regression(network, optimizer='adam',
-                         loss='categorical_crossentropy',
-                         learning_rate=learning_rate,
-                         metric=tflearn.metrics.Top_k(k=5)
-                        )
-    model_2 = tflearn.DNN(network, tensorboard_verbose=0, tensorboard_dir='tensorboard', best_checkpoint_path=checkpoint_path)
-    model_2.load(checkpoint_path + 'checkpoint')
-    b = model_2.evaluate(X_test, Y_test, batch_size=batch_size, weights_only=True)
-    import csv
-    with open('results.csv', 'wb') as csvfile:
-        spamwriter = csv.writer(csvfile, delimiter=',')
-        spamwriter.writerow(name, aug, epoch, model, a, b)
+    # network = create_net(model, img_prep, img_aug, learning_rate)
+    # network = regression(network, optimizer='adam',
+    #                      loss='categorical_crossentropy',
+    #                      learning_rate=learning_rate,
+    #                      metric=tflearn.metrics.Top_k(k=5)
+    #                     )
+    # model_2 = tflearn.DNN(network, tensorboard_verbose=0, tensorboard_dir='tensorboard', best_checkpoint_path=checkpoint_path)
+    # model_2.load(checkpoint_path + 'checkpoint')
+    # b = model_2.evaluate(X_test, Y_test, batch_size=batch_size, weights_only=True)
+    # import csv
+    # with open('results.csv', 'wb') as csvfile:
+    #     spamwriter = csv.writer(csvfile, delimiter=',')
+    #     spamwriter.writerow(name, aug, epoch, model, a, b)
 
 if __name__ == '__main__':
     # Parse arguments and create output directories.
