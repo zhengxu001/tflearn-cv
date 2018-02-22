@@ -113,8 +113,8 @@ def main(name, num_epochs, aug_strategy, model):
     network = create_net(model, img_prep, img_aug, learning_rate)
     checkpoint_path = 'output/'+name+'/'
     sess = tflearn.DNN(network, tensorboard_verbose=0, tensorboard_dir='tensorboard', best_checkpoint_path=checkpoint_path)
-    sess.fit(X, Y, n_epoch=num_epochs, shuffle=True, validation_set=(X_test, Y_test),
-    show_metric=True, batch_size=batch_size, run_id=name)
+    # sess.fit(X, Y, n_epoch=num_epochs, shuffle=True, validation_set=(X_test, Y_test),
+    # show_metric=True, batch_size=batch_size, run_id=name)
     
     network = create_net(model, img_prep, img_aug, learning_rate)
     network = regression(network, optimizer='adam',
