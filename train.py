@@ -95,6 +95,11 @@ def create_net(model, img_prep, img_aug, learning_rate):
     return network
 
 def main(name, num_epochs, aug_strategy, model):
+    if not os.path.exists('tensorboard'):
+        os.makedirs('tensorboard')
+    if not os.path.exists('output'):
+        os.makedirs('output')
+
     print("Start" + name)
     batch_size = 256
     learning_rate = 0.001
