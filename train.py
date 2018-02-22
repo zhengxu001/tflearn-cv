@@ -40,11 +40,11 @@ def get_data(data_dir, model):
 
     # Load training data from hdf5 dataset.
     from tflearn.data_utils import image_preloader
-    X, Y = image_preloader(train_file, image_shape=(256, 256), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
+    X, Y = image_preloader(train_file, image_shape=(64, 64), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
     if model!="alex":    
-        X_test, Y_test = image_preloader(val_file, image_shape=(224, 224), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
+        X_test, Y_test = image_preloader(val_file, image_shape=(64, 64), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
     else:
-        X_test, Y_test = image_preloader(val_file, image_shape=(227, 227), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
+        X_test, Y_test = image_preloader(val_file, image_shape=(64, 64), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
 
     # h5f = h5py.File('hdf5/tiny-imagenet_train.h5', 'r')
     # X = h5f['X']
@@ -67,10 +67,10 @@ def set_data_augmentation(model, aug_strategy):
         img_aug = tflearn.data_augmentation.ImageAugmentation()
         img_aug.add_random_flip_leftright()
         img_aug.add_random_flip_updown()
-        if model!="alex":
-            img_aug.add_random_crop((224,224))
-        else:
-            img_aug.add_random_crop((227,227))
+        # if model!="alex":
+        #     img_aug.add_random_crop((224,224))
+        # else:
+        #     img_aug.add_random_crop((227,227))
     else:
         img_aug = tflearn.data_augmentation.ImageAugmentation()
 
@@ -102,7 +102,7 @@ def main(name, num_epochs, aug_strategy, model):
         os.makedirs('output')
 
     print("Start" + name)
-    batch_size = 64
+    batch_size = 256
     learning_rate = 0.001
     data_dir = "data/tiny-imagenet-200"
 
