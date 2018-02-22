@@ -3,7 +3,7 @@ from tflearn.layers.conv import conv_2d, max_pool_2d
 from tflearn.layers.estimator import regression
 
 def vggNet(img_prep, img_aug, learning_rate):
-    network = input_data(shape=[None, 224, 224, 3],
+    network = input_data(shape=[None, 64, 64, 3],
                              data_preprocessing=img_prep,
                              data_augmentation=img_aug)
     
@@ -15,19 +15,13 @@ def vggNet(img_prep, img_aug, learning_rate):
     network = max_pool_2d(network, 2, strides=2, name='maxpool2')
     network = conv_2d(network, 256, 3, activation='relu', scope='conv3_1')
     network = conv_2d(network, 256, 3, activation='relu', scope='conv3_2')
-    network = conv_2d(network, 256, 3, activation='relu', scope='conv3_3')
     network = max_pool_2d(network, 2, strides=2, name='maxpool3')
     network = conv_2d(network, 512, 3, activation='relu', scope='conv4_1')
     network = conv_2d(network, 512, 3, activation='relu', scope='conv4_2')
-    network = conv_2d(network, 512, 3, activation='relu', scope='conv4_3')
     network = max_pool_2d(network, 2, strides=2, name='maxpool4')
-    network = conv_2d(network, 512, 3, activation='relu', scope='conv5_1')
-    network = conv_2d(network, 512, 3, activation='relu', scope='conv5_2')
-    network = conv_2d(network, 512, 3, activation='relu', scope='conv5_3')
-    network = max_pool_2d(network, 2, strides=2, name='maxpool5')
-    network = fully_connected(network, 4096, activation='relu', scope='fc6')
+    network = fully_connected(network, 1024, activation='relu', scope='fc6')
     network = dropout(network, 0.5, name='dropout1')
-    network = fully_connected(network, 4096, activation='relu', scope='fc7')
+    network = fully_connected(network, 1024, activation='relu', scope='fc7')
     network = dropout(network, 0.5, name='dropout2')
     network = fully_connected(network, 200, activation='softmax', scope='fc8')
 

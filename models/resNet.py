@@ -5,7 +5,7 @@ from tflearn.layers.normalization import batch_normalization
 from tflearn.activations import relu
 
 def resNet(img_prep, img_aug, learning_rate):
-    network = input_data(shape=[None, 224, 224, 3],
+    network = input_data(shape=[None, 64, 64, 3],
                          data_preprocessing=img_prep,
                          data_augmentation=img_aug)
 

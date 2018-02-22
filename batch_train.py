@@ -3,7 +3,7 @@ import train
 augmentations = ["FLIP"]
 # epochs = [20, 40, 60]
 # epochs = [50]
-epochs = [2]
+epochs = [10]
 # models = ["alex", "vgg", "res", "alch"]
 models = ["alex", "vgg", "res"]
 # models = ["baseline"]

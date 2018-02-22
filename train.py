@@ -20,12 +20,35 @@ from tflearn.data_utils import shuffle
 
 def get_data(data_dir, model):
     train_file, val_file = build_dataset_index(data_dir)
-    from tflearn.data_utils import image_preloader
-    X, Y = image_preloader(train_file, image_shape=(256, 256), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
-    if model!="alex":    
-        X_test, Y_test = image_preloader(val_file, image_shape=(224, 224), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
-    else:
-        X_test, Y_test = image_preloader(val_file, image_shape=(227, 227), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
+
+    if not os.path.exists('hdf5'):
+        os.makedirs('hdf5')
+    # Check if hdf5 databases already exist and create them if not.
+    if not os.path.exists('hdf5/tiny-imagenet_train.h5'):
+        from tflearn.data_utils import build_hdf5_image_dataset
+        print('Creating hdf5 train dataset.')
+        build_hdf5_image_dataset(train_file, image_shape=(64, 64), mode='file', output_path='hdf5/tiny-imagenet_train.h5', categorical_labels=True, normalize=True)
+
+    if not os.path.exists('hdf5/tiny-imagenet_val.h5'):
+        from tflearn.data_utils import build_hdf5_image_dataset
+        print(' Creating hdf5 val dataset.')
+        build_hdf5_image_dataset(val_file, image_shape=(64, 64), mode='file', output_path='hdf5/tiny-imagenet_val.h5', categorical_labels=True, normalize=True)
+
+    # Load training data from hdf5 dataset.
+    h5f = h5py.File('hdf5/tiny-imagenet_train.h5', 'r')
+    X = h5f['X']
+    Y = h5f['Y']
+
+    # Load validation data.
+    h5f = h5py.File('hdf5/tiny-imagenet_val.h5', 'r')
+    X_test = h5f['X']
+    Y_test = h5f['Y']    
+    # from tflearn.data_utils import image_preloader
+    # X, Y = image_preloader(train_file, image_shape=(256, 256), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
+    # if model!="alex":    
+    #     X_test, Y_test = image_preloader(val_file, image_shape=(224, 224), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
+    # else:
+    #     X_test, Y_test = image_preloader(val_file, image_shape=(227, 227), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
 
     return X, Y, X_test, Y_test
 
@@ -34,10 +57,7 @@ def set_data_augmentation(model, aug_strategy):
         img_aug = tflearn.data_augmentation.ImageAugmentation()
         img_aug.add_random_flip_leftright()
         img_aug.add_random_flip_updown()
-        if model!="alex":
-            img_aug.add_random_crop((224,224))
-        else:
-            img_aug.add_random_crop((227,227))
+        img_aug.add_random_crop((64,64), 4)
     else:
         img_aug = tflearn.data_augmentation.ImageAugmentation()
 
@@ -45,8 +65,8 @@ def set_data_augmentation(model, aug_strategy):
 
 def image_preprocess():
     img_prep = tflearn.data_preprocessing.ImagePreprocessing()
-    img_prep.add_featurewise_zero_center(mean=0.442049460191)
-    img_prep.add_featurewise_stdnorm(std=0.237478779161)
+    img_prep.add_featurewise_zero_center()
+    img_prep.add_featurewise_stdnorm()
     return img_prep
 
 def create_net(model, img_prep, img_aug, learning_rate):
@@ -57,8 +77,7 @@ def create_net(model, img_prep, img_aug, learning_rate):
     elif model == "res":
         network = resNet(img_prep, img_aug, learning_rate)
     else:
-        # network = alchNet(img_prep, img_aug, learning_rate)
-        network = create_network(img_prep, img_aug, learning_rate)
+        network = alchNet(img_prep, img_aug, learning_rate)
 
     return network
 
@@ -69,7 +88,7 @@ def main(name, num_epochs, aug_strategy, model):
         os.makedirs('output')
 
     print("Start" + name)
-    batch_size = 128
+    batch_size = 256
     learning_rate = 0.001
     data_dir = "data/tiny-imagenet-200"
 
