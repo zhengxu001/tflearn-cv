@@ -50,7 +50,7 @@ def get_data(data_dir, model):
     X = h5f['X']
     Y = h5f['Y']
 
-    Load validation data.
+    # Load validation data.
     if model!="alex":
         h5f = h5py.File('hdf5/tiny-imagenet_val_224.h5', 'r')
         X_test = h5f['X']
