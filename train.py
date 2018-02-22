@@ -17,32 +17,32 @@ from tflearn.data_utils import shuffle
 def get_data(data_dir, model):
     train_file, val_file = build_dataset_index(data_dir)
 
-    # if not os.path.exists('hdf5'):
-    #     os.makedirs('hdf5')
-    # if not os.path.exists('hdf5/tiny-imagenet_train.h5'):
-    #     from tflearn.data_utils import build_hdf5_image_dataset
-    #     print('Creating hdf5 train dataset.')
-    #     build_hdf5_image_dataset(train_file, image_shape=(64, 64), mode='file', output_path='hdf5/tiny-imagenet_train.h5', categorical_labels=True, normalize=True)
+    if not os.path.exists('hdf5'):
+        os.makedirs('hdf5')
+    if not os.path.exists('hdf5/tiny-imagenet_train.h5'):
+        from tflearn.data_utils import build_hdf5_image_dataset
+        print('Creating hdf5 train dataset.')
+        build_hdf5_image_dataset(train_file, image_shape=(64, 64), mode='file', output_path='hdf5/tiny-imagenet_train.h5', categorical_labels=True, normalize=True)
 
-    # if not os.path.exists('hdf5/tiny-imagenet_val.h5'):
-    #     from tflearn.data_utils import build_hdf5_image_dataset
-    #     print(' Creating hdf5 val dataset.')
-    #     build_hdf5_image_dataset(val_file, image_shape=(64, 64), mode='file', output_path='hdf5/tiny-imagenet_val.h5', categorical_labels=True, normalize=True)
+    if not os.path.exists('hdf5/tiny-imagenet_val.h5'):
+        from tflearn.data_utils import build_hdf5_image_dataset
+        print(' Creating hdf5 val dataset.')
+        build_hdf5_image_dataset(val_file, image_shape=(64, 64), mode='file', output_path='hdf5/tiny-imagenet_val.h5', categorical_labels=True, normalize=True)
 
-    # # Load training data from hdf5 dataset.
-    # h5f = h5py.File('hdf5/tiny-imagenet_train.h5', 'r')
-    # X = h5f['X']
-    # Y = h5f['Y']
+    # Load training data from hdf5 dataset.
+    h5f = h5py.File('hdf5/tiny-imagenet_train.h5', 'r')
+    X = h5f['X']
+    Y = h5f['Y']
 
-    # # Load validation data.
-    # h5f = h5py.File('hdf5/tiny-imagenet_val.h5', 'r')
-    # X_test = h5f['X']
-    # Y_test = h5f['Y']
+    # Load validation data.
+    h5f = h5py.File('hdf5/tiny-imagenet_val.h5', 'r')
+    X_test = h5f['X']
+    Y_test = h5f['Y']
 
-    from tflearn.data_utils import image_preloader
-    X, Y = image_preloader(train_file, image_shape=(64, 64), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
-    X_test, Y_test = image_preloader(val_file, image_shape=(64, 64), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
-    return X, Y, X_test, Y_test
+    # from tflearn.data_utils import image_preloader
+    # X, Y = image_preloader(train_file, image_shape=(64, 64), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
+    # X_test, Y_test = image_preloader(val_file, image_shape=(64, 64), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
+    # return X, Y, X_test, Y_test
 
 def set_data_augmentation(model, aug_strategy):
     if aug_strategy!="NA":
@@ -57,8 +57,8 @@ def set_data_augmentation(model, aug_strategy):
 
 def image_preprocess():
     img_prep = tflearn.data_preprocessing.ImagePreprocessing()
-    img_prep.add_featurewise_zero_center()
-    img_prep.add_featurewise_stdnorm()
+    img_prep.add_featurewise_zero_center(mean=0.441955252117)
+    img_prep.add_featurewise_stdnorm(std=0.240941714876)
     return img_prep
 
 def create_net(model, img_prep, img_aug, learning_rate):
