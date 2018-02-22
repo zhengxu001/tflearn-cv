@@ -71,8 +71,8 @@ def set_data_augmentation(model, aug_strategy):
 
 def image_preprocess():
     img_prep = tflearn.data_preprocessing.ImagePreprocessing()
-    img_prep.add_featurewise_zero_center()
-    img_prep.add_featurewise_stdnorm()
+    img_prep.add_featurewise_zero_center(mean=0.442049460191)
+    img_prep.add_featurewise_stdnorm(std=0.237478779161)
     return img_prep
 
 def create_net(model, img_prep, img_aug, learning_rate):
