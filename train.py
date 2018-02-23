@@ -86,7 +86,7 @@ def main(name, num_epochs, aug_strategy, model):
         os.makedirs('output')
 
     print("Start" + name)
-    batch_size = 256
+    batch_size = 128
     learning_rate = 0.001
     data_dir = "data/tiny-imagenet-200"
 
