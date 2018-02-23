@@ -51,7 +51,7 @@ def set_data_augmentation(model, aug_strategy):
         img_aug = tflearn.data_augmentation.ImageAugmentation()
         img_aug.add_random_flip_leftright()
         img_aug.add_random_flip_updown()
-        img_aug.add_random_crop((64,64), 4)
+        img_aug.add_random_crop((64,64), 3)
     else:
         print("Do not use data augmentation\n")
         img_aug = tflearn.data_augmentation.ImageAugmentation()
