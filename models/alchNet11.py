@@ -1,5 +1,5 @@
 from tflearn.layers.core import input_data, dropout, fully_connected
-from tflearn.layers.conv import conv_2d, max_pool_2d, avg_pool_2d
+from tflearn.layers.conv import conv_2d, max_pool_2d, global_avg_pool
 from tflearn.layers.estimator import regression
 from tflearn.layers.normalization import batch_normalization
 from tflearn.activations import relu
@@ -35,7 +35,7 @@ def alchNet11(img_prep, img_aug, learning_rate, dropout=1):
     if dropout==1:
         print("Use Drop Out")
         network = dropout(network, 0.5)
-    network = avg_pool_2d(network)
+    network = global_avg_pool(network)
     network = fully_connected(network, 200, activation='softmax')
     return network
 

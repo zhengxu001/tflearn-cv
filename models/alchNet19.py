@@ -62,6 +62,6 @@ def alchNet19(img_prep, img_aug, learning_rate):
     network = dropout(network, 0.5)
     # TODO: 
     # should try this out
-    network = avg_pool_2d(network)
+    network = global_avg_pool(network)
     network = fully_connected(network, 200, activation='softmax')
     return network
