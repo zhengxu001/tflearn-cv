@@ -17,7 +17,7 @@ def resLayer(x, filters, stride=1):
     network = batch_normalization(network)
     return network
 
-def alchNet11(img_prep, img_aug, learning_rate, dropout=1):
+def alchNet11(img_prep, img_aug, learning_rate, dropout_n=1):
     network = input_data(shape=[None, 64, 64, 3],
                          data_preprocessing=img_prep,
                          data_augmentation=img_aug)
@@ -32,7 +32,7 @@ def alchNet11(img_prep, img_aug, learning_rate, dropout=1):
     network = global_avg_pool(network)
     network = fully_connected(network, 1024, activation='relu')
     network = batch_normalization(network, stddev=0.002, trainable=True, restore=True, reuse=False)
-    if dropout==1:
+    if dropout_n==1:
         print("Use Drop Out")
         network = dropout(network, 0.5)
     network = fully_connected(network, 200, activation='softmax')
