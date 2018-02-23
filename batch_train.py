@@ -2,7 +2,8 @@ import train
 augmentations = ["NA", "FLIP"]
 epochs = [65]
 # models = ["alex", "vgg", "res"]
-models = ["vgg", "res"]
+# models = ["vgg", "res"]
+ models = ["res"]
 for aug in augmentations:
 	for epoch in epochs:
 		for model in models:
