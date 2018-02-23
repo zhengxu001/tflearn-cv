@@ -56,12 +56,9 @@ def alchNet19(img_prep, img_aug, learning_rate):
     network = resLayer(network, 256)
     network = resLayer(network, 512, stride = 2)
     network = resLayer(network, 512)
-
+    network = global_avg_pool(network)
     network = fully_connected(network, 1024, activation='relu')
     network = batch_normalization(network, stddev=0.002, trainable=True, restore=True, reuse=False)
     network = dropout(network, 0.5)
-    # TODO: 
-    # should try this out
-    network = global_avg_pool(network)
     network = fully_connected(network, 200, activation='softmax')
     return network

@@ -29,13 +29,12 @@ def alchNet11(img_prep, img_aug, learning_rate, dropout=1):
     network = resLayer(network, 128, stride = 2)
     network = resLayer(network, 256, stride = 2)
     network = resLayer(network, 512, stride = 2)
-
+    network = global_avg_pool(network)
     network = fully_connected(network, 1024, activation='relu')
     network = batch_normalization(network, stddev=0.002, trainable=True, restore=True, reuse=False)
     if dropout==1:
         print("Use Drop Out")
         network = dropout(network, 0.5)
-    network = global_avg_pool(network)
     network = fully_connected(network, 200, activation='softmax')
     return network
 
