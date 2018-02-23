@@ -75,7 +75,7 @@ def create_net(model, img_prep, img_aug, learning_rate):
         network = alchNet11(img_prep, img_aug, learning_rate)
     elif model == "alch11_without_dropout":
         network = alchNet11(img_prep, img_aug, learning_rate, 0)
-    else
+    else:
         network = alchNet19(img_prep, img_aug, learning_rate)
     return network
 
