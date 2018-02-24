@@ -60,8 +60,10 @@ def save_filename_list(filenames, data_dir, name):
 def build_dataset_index(data_dir):
     train_file, class_dict = build_train_index(data_dir)
     val_file = build_val_index(data_dir, class_dict)
-    print(class_dict)
-    random_classes = random.sample(class_dict,  5)
+    random_classes_labels = random.sample(class_dict,  5)
+    random_classes = {}
+    for label in random_classes_labels:
+        random_classes[label] = class_dictp[label]
     print(random_classes)
     confusion_matrix_file = build_conf_index(data_dir, random_classes)
 
