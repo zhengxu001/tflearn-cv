@@ -98,10 +98,11 @@ network = create_net("vgg", img_prep, img_aug, learning_rate)
 model = tflearn.DNN(network, tensorboard_verbose=0, tensorboard_dir='tensorboard')
 model.load(model_path, weights_only=True)
 y_pred = model.predict_label(X_conf)
-cnf_matrix = confusion_matrix(Y_conf, y_pred)
-plot_confusion_matrix(cnf_matrix, classes=class_names, normalize=True,
-                      title='Normalized confusion matrix')
-plt.show()
+print(y_pred)
+# cnf_matrix = confusion_matrix(Y_conf, y_pred)
+# plot_confusion_matrix(cnf_matrix, classes=class_names, normalize=True,
+#                       title='Normalized confusion matrix')
+# plt.show()
 
 # def main(name="alex-NA-60", num_epochs=60, aug_strategy="NA", model="alex"):
     # get_class_names()
