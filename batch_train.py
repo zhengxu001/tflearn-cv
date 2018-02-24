@@ -9,7 +9,7 @@ import train
 # 	for epoch in epochs:
 # 		for model in models:
 # 			train.main(model+"-"+aug+"-"+str(epoch), epoch, aug, model)
-train.main("alex-FLIP-60", 60, "FLIP", "alex")
+# train.main("alex-FLIP-60", 60, "FLIP", "alex")
 train.main("vgg-FLIP-65", 65, "FLIP", "vgg")
 
 # self_models = ["alch11_without_dropout", "alch11", "alch19"]
