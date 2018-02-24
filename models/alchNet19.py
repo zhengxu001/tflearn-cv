@@ -22,7 +22,7 @@
 #     return network
 
 from tflearn.layers.core import input_data, dropout, fully_connected
-from tflearn.layers.conv import conv_2d, max_pool_2d, avg_pool_2d
+from tflearn.layers.conv import conv_2d, max_pool_2d, avg_pool_2d, global_avg_pool
 from tflearn.layers.estimator import regression
 from tflearn.layers.normalization import batch_normalization
 from tflearn.activations import relu
