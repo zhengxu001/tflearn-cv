@@ -3,6 +3,7 @@
 This script prepares a hdf5 image database file from the tiny-imagenet dataset."""
 
 import os
+import random
 
 def save_name_dict_to_file(data_dir, class_to_name_dict):
     """This function saves a dictionary that maps class labels to descriptions in a text file.
