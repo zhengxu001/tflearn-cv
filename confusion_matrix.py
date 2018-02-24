@@ -97,7 +97,7 @@ learning_rate = 0.001
 network = create_net("vgg", img_prep, img_aug, learning_rate)
 model = tflearn.DNN(network, tensorboard_verbose=0, tensorboard_dir='tensorboard')
 model.load(model_path, weights_only=True)
-e = model.evaluate(X_conf, Y_conf)
+# e = model.evaluate(X_conf, Y_conf)
 y_pred = model.predict_label(X_conf)
 print(y_pred)
 # cnf_matrix = confusion_matrix(Y_conf, y_pred)
