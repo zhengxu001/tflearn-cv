@@ -109,6 +109,8 @@ def build_conf_index(data_dir, class_dict):
     for line in content:
         line_split = line.split('\t')
         if line_split[1] in class_dict:
+            print(line_split)
+            print(class_dict)
             label_dict[line_split[0]] = class_dict[line_split[1]]
 
     # Travel through the val folder
