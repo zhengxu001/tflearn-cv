@@ -86,7 +86,7 @@ def get_class_names(data_dir):
 
 
 data_dir = "data/tiny-imagenet-200"
-model_path = '/home/zen/tflearn-cv/output/vgg-NA-60/3105'
+model_path = '/home/zen/tflearn-cv/output/vgg-NA-65/3052'
 class_names = get_class_names(data_dir)
 X_test, Y_test, X_conf, Y_conf = get_data(data_dir)
 print(X_conf)
