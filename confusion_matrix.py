@@ -81,8 +81,9 @@ def get_class_names(data_dir):
     print(content)
 
 
+get_class_names()
 
-def main(name="alex-NA-60", num_epochs=60, aug_strategy="NA", model="alex"):
+# def main(name="alex-NA-60", num_epochs=60, aug_strategy="NA", model="alex"):
     get_class_names()
     # X_test, Y_test = get_data(data_dir, model)
     # network = create_net(model, img_prep, img_aug, learning_rate)
