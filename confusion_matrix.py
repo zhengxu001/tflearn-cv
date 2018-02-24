@@ -23,7 +23,7 @@ from models.alexNet import *
 
 from tflearn.data_utils import shuffle
 
-def get_data(data_dir, model):
+def get_data(data_dir):
     train_file, val_file = build_dataset_index(data_dir)
     from tflearn.data_utils import image_preloader
     X_test, Y_test = image_preloader(val_file, image_shape=(64, 64), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
@@ -85,11 +85,11 @@ def get_class_names(data_dir):
 
 data_dir = "data/tiny-imagenet-200"
 class_names = get_class_names(data_dir)
-X_test, Y_test = get_data(data_dir, model)
+X_test, Y_test = get_data(data_dir)
 img_prep = tflearn.data_preprocessing.ImagePreprocessing()
 img_aug = tflearn.data_augmentation.ImageAugmentation()
 learning_rate = 0.001
-network = create_net(alex, img_prep, img_aug, learning_rate)
+network = create_net("alex", img_prep, img_aug, learning_rate)
 model = tflearn.DNN(network, tensorboard_verbose=0, tensorboard_dir='tensorboard', best_checkpoint_path=checkpoint_path)
 model.load(model_path, weights_only=True)
 y_pred = model.predict_label(X_test)
