@@ -25,6 +25,7 @@ from tflearn.data_utils import shuffle
 
 def get_data(data_dir):
     train_file, val_file = build_dataset_index(data_dir)
+    print(val_file)
     from tflearn.data_utils import image_preloader
     X_test, Y_test = image_preloader(val_file, image_shape=(64, 64), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
     return X_test, Y_test
