@@ -16,5 +16,5 @@ import train
 # 		for model in self_models:
 # 			train.main(model+"-"+aug+"-"+str(epoch), epoch, aug, model)
 
-train.main("alch11-FLIP-65", 65, "FLIP", "alch11")
-train.main("alch19-FLIP-72", 72, "FLIP", "alch19")
+# train.main("alch11-FLIP-65", 65, "FLIP", "alch11")
+train.main("alch19-FLIP-72", 80, "FLIP", "alch19")
