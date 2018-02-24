@@ -55,8 +55,8 @@ def set_data_augmentation(model, aug_strategy):
         img_aug = tflearn.data_augmentation.ImageAugmentation()
         img_aug.add_random_flip_leftright()
         img_aug.add_random_flip_updown()
-        img_aug.add_random_crop((64,64), 3)
         img_aug.add_random_rotation (max_angle=60.0)
+        img_aug.add_random_crop((64,64), 3)
     else:
         print("Do not use data augmentation\n")
         img_aug = tflearn.data_augmentation.ImageAugmentation()
@@ -65,8 +65,8 @@ def set_data_augmentation(model, aug_strategy):
 
 def image_preprocess():
     img_prep = tflearn.data_preprocessing.ImagePreprocessing()
-    img_prep.add_featurewise_zero_center()
-    img_prep.add_featurewise_stdnorm()
+    img_prep.add_featurewise_zero_center(mean=0.442018)
+    img_prep.add_featurewise_stdnorm(std=0.277759)
     return img_prep
 
 def create_net(model, img_prep, img_aug, learning_rate):
