@@ -84,13 +84,14 @@ def get_class_names(data_dir):
 
 
 data_dir = "data/tiny-imagenet-200"
+model_path = '/home/zen/tflearn-cv/output/alex-NA-60/3105'
 class_names = get_class_names(data_dir)
 X_test, Y_test = get_data(data_dir)
 img_prep = tflearn.data_preprocessing.ImagePreprocessing()
 img_aug = tflearn.data_augmentation.ImageAugmentation()
 learning_rate = 0.001
 network = create_net("alex", img_prep, img_aug, learning_rate)
-model = tflearn.DNN(network, tensorboard_verbose=0, tensorboard_dir='tensorboard', best_checkpoint_path=checkpoint_path)
+model = tflearn.DNN(network, tensorboard_verbose=0, tensorboard_dir='tensorboard')
 model.load(model_path, weights_only=True)
 y_pred = model.predict_label(X_test)
 cnf_matrix = confusion_matrix(Y_test, y_pred)
