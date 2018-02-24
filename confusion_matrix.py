@@ -78,13 +78,27 @@ def get_class_names(data_dir):
     with open(os.path.join(data_dir, 'wnids.txt')) as f:
         content = f.readlines()
     content = [x.strip() for x in content]
-    print(content)
+    random_classes = random.sample(content,  5)
+    return random_classes
 
 
-get_class_names()
+data_dir = "data/tiny-imagenet-200"
+class_names = get_class_names(data_dir)
+X_test, Y_test = get_data(data_dir, model)
+img_prep = tflearn.data_preprocessing.ImagePreprocessing()
+img_aug = tflearn.data_augmentation.ImageAugmentation()
+learning_rate = 0.001
+network = create_net(alex, img_prep, img_aug, learning_rate)
+model = tflearn.DNN(network, tensorboard_verbose=0, tensorboard_dir='tensorboard', best_checkpoint_path=checkpoint_path)
+model.load(model_path, weights_only=True)
+y_pred = model.predict_label(X_test)
+cnf_matrix = confusion_matrix(Y_test, y_pred)
+plot_confusion_matrix(cnf_matrix, classes=class_names, normalize=True,
+                      title='Normalized confusion matrix')
+plt.show()
 
 # def main(name="alex-NA-60", num_epochs=60, aug_strategy="NA", model="alex"):
-    get_class_names()
+    # get_class_names()
     # X_test, Y_test = get_data(data_dir, model)
     # network = create_net(model, img_prep, img_aug, learning_rate)
     # model_path = '/home/zen/tflearn-cv/output/alex-NA-60/3105'
