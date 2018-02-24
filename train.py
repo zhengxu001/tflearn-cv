@@ -14,6 +14,7 @@ from models.vggNet13 import *
 from models.vggNet16 import *
 from models.resNet import *
 from models.alexNet import *
+from models.alchNetEnhance import *
 
 from tflearn.data_utils import shuffle
 
@@ -55,6 +56,7 @@ def set_data_augmentation(model, aug_strategy):
         img_aug.add_random_flip_leftright()
         img_aug.add_random_flip_updown()
         img_aug.add_random_crop((64,64), 3)
+        img_aug.add_random_rotation (max_angle=60.0)
     else:
         print("Do not use data augmentation\n")
         img_aug = tflearn.data_augmentation.ImageAugmentation()
@@ -63,8 +65,8 @@ def set_data_augmentation(model, aug_strategy):
 
 def image_preprocess():
     img_prep = tflearn.data_preprocessing.ImagePreprocessing()
-    img_prep.add_featurewise_zero_center(mean=0.441955252117)
-    img_prep.add_featurewise_stdnorm(std=0.240941714876)
+    img_prep.add_featurewise_zero_center()
+    img_prep.add_featurewise_stdnorm()
     return img_prep
 
 def create_net(model, img_prep, img_aug, learning_rate):
@@ -82,6 +84,8 @@ def create_net(model, img_prep, img_aug, learning_rate):
         network = alchNet11(img_prep, img_aug, learning_rate)
     elif model == "alch11_without_dropout":
         network = alchNet11(img_prep, img_aug, learning_rate, 0)
+    elif model == "alch_enhance":
+        network = alchNetEnhance(img_prep, img_aug, learning_rate)
     else:
         network = alchNet19(img_prep, img_aug, learning_rate)
     return network
@@ -94,7 +98,7 @@ def main(name, num_epochs, aug_strategy, model):
 
     print("Start" + name)
     batch_size = 256
-    learning_rate = 0.0005
+    learning_rate = 0.001
     data_dir = "data/tiny-imagenet-200"
 
     X, Y, X_test, Y_test = get_data(data_dir, model)

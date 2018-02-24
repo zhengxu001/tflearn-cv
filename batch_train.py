@@ -11,7 +11,8 @@ import train
 # 			train.main(model+"-"+aug+"-"+str(epoch), epoch, aug, model)
 # train.main("alex-FLIP-60", 60, "FLIP", "alex")
 # train.main("vgg-NA-65-shuffle", 65, "NA", "vgg")
-train.main("vgg-FLIP-65-shuffle", 65, "FLIP", "vgg")
+# train.main("vgg-FLIP-65-shuffle", 65, "FLIP", "vgg")
+# train.main("vgg13", 65, "FLIP", "vgg13")
 train.main("vgg13", 65, "FLIP", "vgg13")
 train.main("vgg16", 65, "FLIP", "vgg16")
 
