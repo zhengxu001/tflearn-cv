@@ -60,7 +60,9 @@ def save_filename_list(filenames, data_dir, name):
 def build_dataset_index(data_dir):
     train_file, class_dict = build_train_index(data_dir)
     val_file = build_val_index(data_dir, class_dict)
+    print(class_dict)
     random_classes = random.sample(class_dict,  5)
+    print(random_classes)
     confusion_matrix_file = build_conf_index(data_dir, random_classes)
 
     return train_file, val_file, confusion_matrix_file
@@ -109,8 +111,6 @@ def build_conf_index(data_dir, class_dict):
     for line in content:
         line_split = line.split('\t')
         if line_split[1] in class_dict:
-            print(line_split)
-            print(class_dict)
             label_dict[line_split[0]] = class_dict[line_split[1]]
 
     # Travel through the val folder
