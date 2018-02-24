@@ -10,6 +10,8 @@ from datasets.tiny_imagenet import *
 from models.alchNet11 import alchNet11
 from models.alchNet19 import alchNet19
 from models.vggNet import *
+from models.vggNet13 import *
+from models.vggNet16 import *
 from models.resNet import *
 from models.alexNet import *
 
@@ -70,6 +72,10 @@ def create_net(model, img_prep, img_aug, learning_rate):
         network = alexNet(img_prep, img_aug, learning_rate)
     elif model == "vgg":
         network = vggNet(img_prep, img_aug, learning_rate)
+    elif model == "vgg13":
+        network = vggNet13(img_prep, img_aug, learning_rate)
+    elif model == "vgg16":
+        network = vggNet16(img_prep, img_aug, learning_rate)
     elif model == "res":
         network = resNet(img_prep, img_aug, learning_rate)
     elif model == "alch11":
