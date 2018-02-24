@@ -27,9 +27,10 @@ def get_data(data_dir):
     train_file, val_file, conf_file = build_dataset_index(data_dir)
     print(conf_file)
     from tflearn.data_utils import image_preloader
-    X_test, Y_test = image_preloader(val_file, image_shape=(64, 64), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
+    # X_test, Y_test = image_preloader(val_file, image_shape=(64, 64), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
     X_conf, Y_conf = image_preloader(conf_file, image_shape=(64, 64), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
-    return X_test, Y_test, X_conf, Y_conf
+    # return X_test, Y_test, X_conf, Y_conf
+    return X_conf, Y_conf
 
 def create_net(model, img_prep, img_aug, learning_rate):
     if model == "alex":
@@ -88,9 +89,8 @@ def get_class_names(data_dir):
 data_dir = "data/tiny-imagenet-200"
 model_path = '/home/zen/tflearn-cv/output/vgg-NA-65/3052'
 class_names = get_class_names(data_dir)
-X_test, Y_test, X_conf, Y_conf = get_data(data_dir)
-print(X_conf)
-print(Y_conf)
+# X_test, Y_test, X_conf, Y_conf = get_data(data_dir)
+X_conf, Y_conf = get_data(data_dir)
 img_prep = tflearn.data_preprocessing.ImagePreprocessing()
 img_aug = tflearn.data_augmentation.ImageAugmentation()
 learning_rate = 0.001
@@ -100,6 +100,14 @@ model.load(model_path, weights_only=True)
 # e = model.evaluate(X_conf, Y_conf)
 y_pred = model.predict_label(X_conf)
 print(y_pred)
+predictions = []
+count = 0
+length = len(y_pred)
+for line in y_pred:
+  predictions.append(line[0])
+  count += 1
+print(count)
+print(predictions)
 # cnf_matrix = confusion_matrix(Y_conf, y_pred)
 # plot_confusion_matrix(cnf_matrix, classes=class_names, normalize=True,
 #                       title='Normalized confusion matrix')
