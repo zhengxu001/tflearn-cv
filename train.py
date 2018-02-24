@@ -96,7 +96,7 @@ def main(name, num_epochs, aug_strategy, model):
     if not os.path.exists('output'):
         os.makedirs('output')
 
-    print("Start" + name)
+    print("Start: " + name)
     batch_size = 256
     learning_rate = 0.001
     data_dir = "data/tiny-imagenet-200"
