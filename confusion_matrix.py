@@ -24,11 +24,12 @@ from models.alexNet import *
 from tflearn.data_utils import shuffle
 
 def get_data(data_dir):
-    train_file, val_file = build_dataset_index(data_dir)
-    print(val_file)
+    train_file, val_file, conf_file = build_dataset_index(data_dir)
+    print(conf_file)
     from tflearn.data_utils import image_preloader
     X_test, Y_test = image_preloader(val_file, image_shape=(64, 64), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
-    return X_test, Y_test
+    X_conf, Y_conf = image_preloader(conf_file, image_shape=(64, 64), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
+    return X_test, Y_test, X_conf, Y_conf
 
 def create_net(model, img_prep, img_aug, learning_rate):
     if model == "alex":
@@ -87,9 +88,9 @@ def get_class_names(data_dir):
 data_dir = "data/tiny-imagenet-200"
 model_path = '/home/zen/tflearn-cv/output/vgg-NA-60/3105'
 class_names = get_class_names(data_dir)
-X_test, Y_test = get_data(data_dir)
-print(X_test)
-print(Y_test)
+X_test, Y_test, X_conf, Y_conf = get_data(data_dir)
+# print(X_test)
+# print(Y_test)
 # img_prep = tflearn.data_preprocessing.ImagePreprocessing()
 # img_aug = tflearn.data_augmentation.ImageAugmentation()
 # learning_rate = 0.001
