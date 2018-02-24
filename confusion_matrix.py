@@ -89,19 +89,19 @@ data_dir = "data/tiny-imagenet-200"
 model_path = '/home/zen/tflearn-cv/output/vgg-NA-60/3105'
 class_names = get_class_names(data_dir)
 X_test, Y_test, X_conf, Y_conf = get_data(data_dir)
-# print(X_test)
-# print(Y_test)
-# img_prep = tflearn.data_preprocessing.ImagePreprocessing()
-# img_aug = tflearn.data_augmentation.ImageAugmentation()
-# learning_rate = 0.001
-# network = create_net("vgg", img_prep, img_aug, learning_rate)
-# model = tflearn.DNN(network, tensorboard_verbose=0, tensorboard_dir='tensorboard')
-# model.load(model_path, weights_only=True)
-# y_pred = model.predict_label(X_test)
-# cnf_matrix = confusion_matrix(Y_test, y_pred)
-# plot_confusion_matrix(cnf_matrix, classes=class_names, normalize=True,
-#                       title='Normalized confusion matrix')
-# plt.show()
+print(X_conf)
+print(Y_conf)
+img_prep = tflearn.data_preprocessing.ImagePreprocessing()
+img_aug = tflearn.data_augmentation.ImageAugmentation()
+learning_rate = 0.001
+network = create_net("vgg", img_prep, img_aug, learning_rate)
+model = tflearn.DNN(network, tensorboard_verbose=0, tensorboard_dir='tensorboard')
+model.load(model_path, weights_only=True)
+y_pred = model.predict_label(X_conf)
+cnf_matrix = confusion_matrix(Y_conf, y_pred)
+plot_confusion_matrix(cnf_matrix, classes=class_names, normalize=True,
+                      title='Normalized confusion matrix')
+plt.show()
 
 # def main(name="alex-NA-60", num_epochs=60, aug_strategy="NA", model="alex"):
     # get_class_names()
