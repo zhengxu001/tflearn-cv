@@ -6,6 +6,7 @@ import h5py
 import itertools
 import numpy as np
 import matplotlib.pyplot as plt
+import random
 
 from sklearn import svm, datasets
 from sklearn.model_selection import train_test_split
