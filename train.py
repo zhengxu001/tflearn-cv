@@ -95,6 +95,8 @@ def main(name, num_epochs, aug_strategy, model):
         os.makedirs('tensorboard')
     if not os.path.exists('output'):
         os.makedirs('output')
+    
+    modle = "alch19"
 
     print("Start: " + name)
     batch_size = 256
