@@ -42,4 +42,7 @@ def alchNetEnhance(img_prep, img_aug, learning_rate):
     network = dropout(network, 0.5)
 
     network = fully_connected(network, 200, activation='softmax')
+    network = regression(network, optimizer='momentum',
+                         loss='categorical_crossentropy',
+                         learning_rate=learning_rate)
     return network

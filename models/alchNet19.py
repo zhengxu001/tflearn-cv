@@ -64,4 +64,7 @@ def alchNet19(img_prep, img_aug, learning_rate):
     # should try this out
     network = global_avg_pool(network)
     network = fully_connected(network, 200, activation='softmax')
+    network = regression(network, optimizer='momentum',
+                         loss='categorical_crossentropy',
+                         learning_rate=learning_rate)
     return network
