@@ -87,6 +87,7 @@ def get_class_names(data_dir):
 
 
 data_dir = "data/tiny-imagenet-200"
+target_path = "data/tiny-imagenet-200/cache/conf_image_paths.txt"
 model_path = '/home/zen/tflearn-cv/output/vgg-NA-65/3052'
 class_names = get_class_names(data_dir)
 # X_test, Y_test, X_conf, Y_conf = get_data(data_dir)
@@ -94,20 +95,31 @@ X_conf, Y_conf = get_data(data_dir)
 img_prep = tflearn.data_preprocessing.ImagePreprocessing()
 img_aug = tflearn.data_augmentation.ImageAugmentation()
 learning_rate = 0.001
-network = create_net("vgg", img_prep, img_aug, learning_rate)
-model = tflearn.DNN(network, tensorboard_verbose=0, tensorboard_dir='tensorboard')
-model.load(model_path, weights_only=True)
+# network = create_net("vgg", img_prep, img_aug, learning_rate)
+# model = tflearn.DNN(network, tensorboard_verbose=0, tensorboard_dir='tensorboard')
+# model.load(model_path, weights_only=True)
 # e = model.evaluate(X_conf, Y_conf)
-y_pred = model.predict_label(X_conf)
-print(y_pred)
-predictions = []
-count = 0
-length = len(y_pred)
-for line in y_pred:
-  predictions.append(line[0])
-  count += 1
-print(count)
-print(predictions)
+# y_pred = model.predict_label(X_conf)
+# print(y_pred)
+# predictions = []
+# count = 0
+# length = len(y_pred)
+# for line in y_pred:
+#   predictions.append(line[0])
+#   count += 1
+# print(count)
+# print(predictions)
+with open(target_path, 'r') as f:
+    images, labels = [], []
+    for l in f.readlines():
+        l = l.strip('\n').split()
+        if not files_extension or any(flag in l[0] for flag in files_extension):
+            if filter_channel:
+                if get_img_channel(l[0]) != 3:
+                    continue
+            images.append(l[0])
+            labels.append(int(l[1]))
+print(labels)
 # cnf_matrix = confusion_matrix(Y_conf, y_pred)
 # plot_confusion_matrix(cnf_matrix, classes=class_names, normalize=True,
 #                       title='Normalized confusion matrix')
