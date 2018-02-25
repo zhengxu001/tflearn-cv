@@ -27,9 +27,7 @@ def get_data(data_dir):
     train_file, val_file, conf_file = build_dataset_index(data_dir)
     print(conf_file)
     from tflearn.data_utils import image_preloader
-    # X_test, Y_test = image_preloader(val_file, image_shape=(64, 64), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
     X_conf, Y_conf = image_preloader(conf_file, image_shape=(64, 64), mode='file', categorical_labels=True, normalize=True, filter_channel=True)
-    # return X_test, Y_test, X_conf, Y_conf
     return X_conf, Y_conf
 
 def create_net(model, img_prep, img_aug, learning_rate):
@@ -88,19 +86,27 @@ def get_class_names(data_dir):
 
 data_dir = "data/tiny-imagenet-200"
 target_path = "data/tiny-imagenet-200/cache/conf_image_paths.txt"
-# model_path = '/home/zen/tflearn-cv/output/vgg-NA-65/3052'
-# class_names = get_class_names(data_dir)
-# X_test, Y_test, X_conf, Y_conf = get_data(data_dir)
+model_path = '/home/zen/tflearn-cv/output/vgg-NA-65/3052'
 X_conf, Y_conf = get_data(data_dir)
-# img_prep = tflearn.data_preprocessing.ImagePreprocessing()
-# img_aug = tflearn.data_augmentation.ImageAugmentation()
-# learning_rate = 0.001
-# network = create_net("vgg", img_prep, img_aug, learning_rate)
-# model = tflearn.DNN(network, tensorboard_verbose=0, tensorboard_dir='tensorboard')
-# model.load(model_path, weights_only=True)
-# e = model.evaluate(X_conf, Y_conf)
-# y_pred = model.predict_label(X_conf)
-# print(y_pred)
+img_prep = tflearn.data_preprocessing.ImagePreprocessing()
+img_aug = tflearn.data_augmentation.ImageAugmentation()
+learning_rate = 0.001
+network = create_net("vgg", img_prep, img_aug, learning_rate)
+model = tflearn.DNN(network, tensorboard_verbose=0, tensorboard_dir='tensorboard')
+model.load(model_path, weights_only=True)
+
+with open(target_path, 'r') as f:
+    images, labels = [], []
+    for l in f.readlines():
+        l = l.strip('\n').split()
+        if not files_extension or any(flag in l[0] for flag in files_extension):
+            images.append(l[0])
+            labels.append(int(l[1]))
+
+# e = model.evaluate(images, labels)
+y_pred = model.predict_label(images)
+print(y_pred)
+print(labels)
 # predictions = []
 # count = 0
 # length = len(y_pred)
@@ -109,14 +115,7 @@ X_conf, Y_conf = get_data(data_dir)
 #   count += 1
 # print(count)
 # print(predictions)
-with open(target_path, 'r') as f:
-    images, labels = [], []
-    for l in f.readlines():
-        l = l.strip('\n').split()
-        if not files_extension or any(flag in l[0] for flag in files_extension):
-            images.append(l[0])
-            labels.append(int(l[1]))
-print(labels)
+
 # cnf_matrix = confusion_matrix(Y_conf, y_pred)
 # plot_confusion_matrix(cnf_matrix, classes=class_names, normalize=True,
 #                       title='Normalized confusion matrix')
