@@ -61,7 +61,7 @@ def alchNet19(img_prep, img_aug, learning_rate):
     network = batch_normalization(network, stddev=0.002, trainable=True, restore=True, reuse=False)
     network = dropout(network, 0.5)
     network = fully_connected(network, 200, activation='softmax')
-    network = regression(network, optimizer='momentum',
-                         loss='categorical_crossentropy',
-                         learning_rate=learning_rate)
+    # network = regression(network, optimizer='momentum',
+    #                      loss='categorical_crossentropy',
+    #                      learning_rate=learning_rate)
     return network
