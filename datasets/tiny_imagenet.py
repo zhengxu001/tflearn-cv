@@ -3,6 +3,7 @@
 This script prepares a hdf5 image database file from the tiny-imagenet dataset."""
 
 import os
+import random
 
 def save_name_dict_to_file(data_dir, class_to_name_dict):
     """This function saves a dictionary that maps class labels to descriptions in a text file.
@@ -59,8 +60,14 @@ def save_filename_list(filenames, data_dir, name):
 def build_dataset_index(data_dir):
     train_file, class_dict = build_train_index(data_dir)
     val_file = build_val_index(data_dir, class_dict)
+    random_classes_labels = random.sample(class_dict,  2)
+    random_classes = {}
+    for label in random_classes_labels:
+        random_classes[label] = class_dict[label]
+    print(random_classes)
+    confusion_matrix_file = build_conf_index(data_dir, random_classes)
 
-    return train_file, val_file
+    return train_file, val_file, confusion_matrix_file
 
 def build_val_index(data_dir, class_dict):
     """This functions lists all image paths and their labels for the validation set and
@@ -93,6 +100,29 @@ def build_val_index(data_dir, class_dict):
                 filenames.append((file_path, label_dict[file]))
 
     save_file = save_filename_list(filenames, data_dir, 'val_image_paths.txt')
+    return save_file
+
+def build_conf_index(data_dir, class_dict):
+    filenames = []
+    with open(os.path.join(data_dir, 'val', 'val_annotations.txt'), 'r') as text_file:
+        content = text_file.readlines()
+    content = [x.strip() for x in content]
+
+    # Build dict to map image name to label
+    label_dict = {}
+    for line in content:
+        line_split = line.split('\t')
+        if line_split[1] in class_dict:
+            label_dict[line_split[0]] = class_dict[line_split[1]]
+
+    # Travel through the val folder
+    for subdir, dirs, files in os.walk(os.path.join(data_dir, 'val')):
+        for file in files:
+            if file.endswith('.JPEG') and file in label_dict:
+                file_path = os.path.join(subdir, file)
+                filenames.append((file_path, label_dict[file]))
+
+    save_file = save_filename_list(filenames, data_dir, 'conf_image_paths.txt')
     return save_file
 
 def build_train_index(data_dir):
