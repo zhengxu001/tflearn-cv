@@ -114,9 +114,6 @@ with open(target_path, 'r') as f:
     for l in f.readlines():
         l = l.strip('\n').split()
         if not files_extension or any(flag in l[0] for flag in files_extension):
-            if filter_channel:
-                if get_img_channel(l[0]) != 3:
-                    continue
             images.append(l[0])
             labels.append(int(l[1]))
 print(labels)
