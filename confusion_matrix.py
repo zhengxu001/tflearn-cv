@@ -99,9 +99,8 @@ with open(target_path, 'r') as f:
     images, labels = [], []
     for l in f.readlines():
         l = l.strip('\n').split()
-        if not files_extension or any(flag in l[0] for flag in files_extension):
-            images.append(l[0])
-            labels.append(int(l[1]))
+        images.append(l[0])
+        labels.append(int(l[1]))
 
 # e = model.evaluate(images, labels)
 y_pred = model.predict_label(images)
