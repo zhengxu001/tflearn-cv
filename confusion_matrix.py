@@ -104,16 +104,18 @@ with open(target_path, 'r') as f:
 
 # e = model.evaluate(images, labels)
 y_pred = model.predict_label(X_conf)
-print(y_pred)
+predictions = []
+count = 0
+length = len(y_pred)
+
+for line in y_pred:
+  predictions.append(line[0])
+  count += 1
+
+print(count)
+print(predictions)
 print(labels)
-# predictions = []
-# count = 0
-# length = len(y_pred)
-# for line in y_pred:
-#   predictions.append(line[0])
-#   count += 1
-# print(count)
-# print(predictions)
+
 
 # cnf_matrix = confusion_matrix(Y_conf, y_pred)
 # plot_confusion_matrix(cnf_matrix, classes=class_names, normalize=True,
