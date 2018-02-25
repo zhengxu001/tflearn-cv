@@ -103,7 +103,7 @@ with open(target_path, 'r') as f:
         labels.append(int(l[1]))
 
 # e = model.evaluate(images, labels)
-y_pred = model.predict_label(images)
+y_pred = model.predict_label(X_conf)
 print(y_pred)
 print(labels)
 # predictions = []
