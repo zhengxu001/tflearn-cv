@@ -13,7 +13,7 @@ import train
 # train.main("vgg-NA-65-shuffle", 65, "NA", "vgg")
 # train.main("vgg-FLIP-65-shuffle", 65, "FLIP", "vgg")
 # train.main("vgg13", 65, "FLIP", "vgg13")
-train.main("vgg16", 65, "FLIP", "vgg16")
+train.main("vggtop5", 65, "FLIP", "vggtop5")
 
 # train.main("alch_enhance", 80, "FLIP", "alch_enhance")
 # self_models = ["alch11_without_dropout", "alch11", "alch19"]
