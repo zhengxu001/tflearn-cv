@@ -86,12 +86,12 @@ def get_class_names(data_dir):
 
 data_dir = "data/tiny-imagenet-200"
 target_path = "data/tiny-imagenet-200/cache/conf_image_paths.txt"
-model_path = '/home/zen/tflearn-cv/output/vgg-NA-65/3052'
+model_path = '/home/ruiqixiao77/tflearn-cv/output/alch19-FLIP-72/4778'
 X_conf, Y_conf = get_data(data_dir)
 img_prep = tflearn.data_preprocessing.ImagePreprocessing()
 img_aug = tflearn.data_augmentation.ImageAugmentation()
 learning_rate = 0.001
-network = create_net("vgg", img_prep, img_aug, learning_rate)
+network = create_net("alchNet19", img_prep, img_aug, learning_rate)
 model = tflearn.DNN(network, tensorboard_verbose=0, tensorboard_dir='tensorboard')
 model.load(model_path, weights_only=True)
 
