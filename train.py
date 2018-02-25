@@ -104,9 +104,9 @@ def main(name, num_epochs, aug_strategy, model):
     network = create_net(model, img_prep, img_aug, learning_rate)
     network = regression(network, optimizer='adam',
                          loss='categorical_crossentropy',
-                         learning_rate=learning_rate,
-                         metric=tflearn.metrics.Top_k(k=1)
+                         learning_rate=learning_rate
                         )
+# metric=tflearn.metrics.Top_k(k=1)
     model_1 = tflearn.DNN(network, tensorboard_verbose=0, tensorboard_dir='tensorboard', best_checkpoint_path=checkpoint_path)
     model_1.load("/home/ruiqixiao77/tflearn-cv/output/alch19-FLIP-72/4778", weights_only=True)
     a = model_1.evaluate(X_test, Y_test, batch_size=batch_size)
@@ -115,9 +115,9 @@ def main(name, num_epochs, aug_strategy, model):
     network = create_net(model, img_prep, img_aug, learning_rate)
     network = regression(network, optimizer='adam',
                          loss='categorical_crossentropy',
-                         learning_rate=learning_rate,
-                         metric=tflearn.metrics.Top_k(k=5)
+                         learning_rate=learning_rate
                         )
+# metric=tflearn.metrics.Top_k(k=5)
     model_2 = tflearn.DNN(network, tensorboard_verbose=0, tensorboard_dir='tensorboard', best_checkpoint_path=checkpoint_path)
     model_2.load("/home/ruiqixiao77/tflearn-cv/output/alch19-FLIP-72/4778", weights_only=True)
     b = model_2.evaluate(X_test, Y_test, batch_size=batch_size)
